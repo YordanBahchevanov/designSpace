@@ -29,7 +29,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/your-username/DesignSpace.git
+git clone https://github.com/YordanBahchevanov/designSpace.git
 cd designSpace
 Install dependencies:
 
