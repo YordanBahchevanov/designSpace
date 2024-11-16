@@ -1,1 +1,6 @@
-@import 'home.css';
+@import 'reset.css';
+@import 'body.css';
+@import 'header.css';
+@import 'navigation.css';
+@import 'search.css';
+@import 'main.css';

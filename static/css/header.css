@@ -1,0 +1,31 @@
+header {
+    height: 240px;
+    background-color: #1E1E1E;
+    color: #ECEFF5;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    border-bottom: 2px solid #8994A3;
+}
+
+.title {
+    padding: 0;
+}
+
+h1 {
+    font-size: 65px;
+    padding-top: 15px;
+}
+
+h1:hover {
+    cursor: pointer;
+}
+
+.design {
+    color: #ECEFF5;
+}
+
+.space {
+    color: #8994A3;
+}
