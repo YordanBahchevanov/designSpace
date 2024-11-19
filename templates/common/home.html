@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>DesignSpace</title>
+</head>
+<body>
+
+<header>
+    <div class="title">
+        <h1><span class="design">Design</span><span class="space">Space</span></h1>
+    </div>
+</header>
+
+{% include 'common/navbar.html' %}
+
+<main>
+    <div class="projects">
+
+        <div class="project">
+            <div class="cover-image">
+                <img src="{% static 'images/picture_1.jpg' %}" alt="">
+            </div>
+            <div class="small-images">
+                <div class="small-image">
+                    <img src="{% static 'images/picture_2.jpg' %}" alt="">
+                </div>
+                <div class="small-image">
+                    <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="cover-image">
+                <img src="{% static 'images/picture_1.jpg' %}" alt="">
+            </div>
+            <div class="small-images">
+                <div class="small-image">
+                    <img src="{% static 'images/picture_2.jpg' %}" alt="">
+                </div>
+                <div class="small-image">
+                    <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="cover-image">
+                <img src="{% static 'images/picture_2.jpg' %}" alt="">
+            </div>
+            <div class="small-images">
+                <div class="small-image">
+                    <img src="{% static 'images/picture_1.jpg' %}" alt="">
+                </div>
+                <div class="small-image">
+                    <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                </div>
+                <div class="small-image">
+                    <img src="{% static 'images/picture_1.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="jobs">
+        <div class="job">Job 1</div>
+        <div class="job">Job 2</div>
+        <div class="job">Job 3</div>
+        <div class="job">Job 4</div>
+        <div class="job">Job 5</div>
+    </div>
+</main>
+
+<footer>
+
+</footer>
+<script src="{% static 'scripts/searchBar.js' %}"></script>
+
+</body>
+</html>

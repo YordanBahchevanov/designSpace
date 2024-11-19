@@ -1,85 +1,78 @@
 main {
     display: flex;
-    justify-content: space-between;
-    padding: 50px 150px;
-    height: calc(100vh - 100px);
-    gap: 10px;
-    overflow: hidden;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 25px 0;
+    gap: 20px;
+    width: 70%;
 }
 
 .projects,
 .jobs {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    overflow-y: auto;
-    padding-right: 10px;
+    justify-content: flex-start;
 }
 
 .projects {
     flex: 0 0 60%;
-    height: 100%;
+    gap: 18px;
 }
 
 .jobs {
     flex: 0 0 40%;
-    height: 100%;
+    gap: 15px;
 }
 
 .project {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #ECEFF5;
-    border: 2px solid #13AFF0;
-    border-radius: 8px;
-    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
     text-align: center;
+    min-height: 300px;
+    overflow: hidden;
 }
 
-.large-image img {
-    width: 100%;
+.cover-image {
+    flex: 0 0 65%;
     height: auto;
-    object-fit: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-image img {
+    width: 100%;
+    object-fit: contain;
     border-radius: 4px;
 }
 
 .small-images {
+    flex: 0 0 35%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    align-items: stretch;
 }
 
 .small-image img {
-    width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 4px;
 }
 
-/* Jobs Styling */
 .job {
-    height: 50%;
-    background-color: #ECEFF5;
-    border: 2px solid #13AFF0;
-    border-radius: 8px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: white;
+    padding: 10px;
     text-align: center;
-}
-
-/* Scrollbar Styles */
-.projects::-webkit-scrollbar,
-.jobs::-webkit-scrollbar {
-    width: 8px;
-}
-
-.projects::-webkit-scrollbar-thumb,
-.jobs::-webkit-scrollbar-thumb {
-    background-color: #13AFF0;
-    border-radius: 5px;
-}
-
-.projects::-webkit-scrollbar-track,
-.jobs::-webkit-scrollbar-track {
-    background: #f5f5f5;
+    height: 250px;
+    box-sizing: border-box;
+    overflow: hidden;
 }

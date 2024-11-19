@@ -4,5 +4,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: render(request, 'home.html'), name='home'),
+    path('', lambda request: render(request, 'common/home.html'), name='home'),
 ]

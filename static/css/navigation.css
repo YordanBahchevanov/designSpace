@@ -1,5 +1,13 @@
 nav {
-    padding-top: 40px;
+    position: sticky;
+    top: 0;
+    background-color: #1E1E1E;
+    z-index: 1000;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav a {
@@ -28,8 +36,8 @@ nav a:hover {
 .register {
     background-color: #13AFF0;
     color: #1E1E1E;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 8px;
     transition:
         background-color 0.3s ease-in-out,
         color 0.3s ease-in-out
