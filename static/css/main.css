@@ -16,12 +16,12 @@ main {
 
 .projects {
     flex: 0 0 60%;
-    gap: 18px;
+    gap: 16px;
 }
 
 .jobs {
     flex: 0 0 40%;
-    gap: 15px;
+    gap: 13px;
 }
 
 .project {
@@ -34,6 +34,10 @@ main {
     text-align: center;
     min-height: 300px;
     overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cover-image {
@@ -43,12 +47,116 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .cover-image img {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 4px;
+}
+
+.project-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #8994A3;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 2;
+}
+
+.project:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project:hover .project-text {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.project .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5px 0 0;
+    z-index: 3;
+}
+
+.project .buttons div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #13AFF0;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.project .buttons div:hover {
+    background-color: #0a6287;
+}
+
+.project .buttons div a i {
+    font-size: 20px;
+    color: #ECEFF5;
+}
+
+.project .buttons div a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.project .buttons div:hover a {
+    color: #ffffff;
+}
+
+.project .buttons .save-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #ECEFF5;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: auto;
+    gap: 10px;
+}
+
+.project .buttons .save-project a i {
+    margin-right: 8px;
+}
+
+.project .buttons .more-info {
+    margin-left: auto;
+    background-color: transparent;
+    color: #8994A3;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.project .buttons .more-info:hover {
+    color: #1E1E1E;
 }
 
 .small-images {
@@ -65,14 +173,81 @@ main {
     border-radius: 4px;
 }
 
+.jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .job {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    background-color: white;
-    padding: 10px;
-    text-align: center;
-    height: 250px;
-    box-sizing: border-box;
-    overflow: hidden;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.job:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-header h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #333333;
+}
+
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.job-details p {
+    margin: 0;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.job-details .job-pricing,
+.job-details .job-date {
+    font-weight: bold;
+    color: #333333;
+}
+
+.job-details .job-description {
+    font-weight: 400;
+    color: #666666;
+}
+
+.more-info {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #13AFF0;
+    text-decoration: none;
+    border: 1px solid #13AFF0;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.more-info:hover {
+    background-color: #13AFF0;
+    color: white;
 }
