@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/body.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -33,7 +33,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2offgQUPcHchmMjMl9maKEoLbjn" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -111,7 +113,7 @@
       <updated>1731265661381</updated>
       <workItem from="1731265669510" duration="3532000" />
       <workItem from="1731749994751" duration="20408000" />
-      <workItem from="1731783163349" duration="36143000" />
+      <workItem from="1731783163349" duration="44921000" />
     </task>
     <servers />
   </component>

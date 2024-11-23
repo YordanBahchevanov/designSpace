@@ -1,0 +1,61 @@
+.jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 0 0 40%;
+}
+
+.job {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.job:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-header h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #333333;
+}
+
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.job-details p {
+    margin: 0;
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.job-details .job-pricing,
+.job-details .job-date {
+    font-weight: bold;
+    color: #333333;
+}
+
+.job-details .job-description {
+    font-weight: 400;
+    color: #666666;
+}

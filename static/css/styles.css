@@ -1,6 +1,9 @@
 @import 'reset.css';
-@import 'body.css';
 @import 'header.css';
 @import 'navigation.css';
 @import 'search.css';
-@import 'main.css';
+@import 'layout.css';
+@import 'projects.css';
+@import 'jobs.css';
+@import 'buttons.css';
+
