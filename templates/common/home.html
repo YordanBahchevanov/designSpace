@@ -1,178 +1,158 @@
+{% extends 'common/base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>DesignSpace</title>
-</head>
-<body>
+{% block content %}
+    <main>
+        <div class="projects">
 
-<header>
-    <div class="title">
-        <h1><span class="design">Design</span><span class="space">Space</span></h1>
-    </div>
-</header>
-
-{% include 'common/navbar.html' %}
-
-<main>
-    <div class="projects">
-
-        <div class="project">
-            <div class="cover-image">
-                <img src="{% static 'images/picture_1.jpg' %}" alt="">
-            </div>
-            <div class="project-text">
-                <p><strong>Architect:</strong> Ludwig Mies van der Rohe</p>
-                <p><span>Project:</span> Barcelona Pavilion</p>
-                <p><span>Area:</span> 65 m²</p>
-                <p><span>Location:</span> Barcelona, Spain</p>
-                <p><span>Year:</span> 1928</p>
-            </div>
-            <div class="small-images">
-                <div class="small-image">
-                    <img src="{% static 'images/picture_2.jpg' %}" alt="">
-                </div>
-                <div class="small-image">
-                    <img src="{% static 'images/picture_3.jpg' %}" alt="">
-                </div>
-            </div>
-            <div class="buttons">
-                <div class="save-project">
-                    <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
-                </div>
-                <div class="share-button">
-                    <a href="#"><i class="fa-solid fa-share"></i></a>
-                </div>
-                <div class="like-button">
-                    <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
-                </div>
-                <button class="more-info">More info</button>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="cover-image">
-                <img src="{% static 'images/picture_1.jpg' %}" alt="">
-            </div>
-            <div class="project-text">
-                <p><span>Architect:</span> Ludwig Mies van der Rohe</p>
-                <p><span>Project:</span> Barcelona Pavilion</p>
-                <p><span>Area:</span> 65 m²</p>
-                <p><span>Location:</span> Barcelona, Spain</p>
-                <p><span>Year:</span> 1928</p>
-            </div>
-            <div class="small-images">
-                <div class="small-image">
-                    <img src="{% static 'images/picture_2.jpg' %}" alt="">
-                </div>
-                <div class="small-image">
-                    <img src="{% static 'images/picture_3.jpg' %}" alt="">
-                </div>
-            </div>
-            <div class="buttons">
-                <div class="save-project">
-                    <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
-                </div>
-                <div class="share-button">
-                    <a href="#"><i class="fa-solid fa-share"></i></a>
-                </div>
-                <div class="like-button">
-                    <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
-                </div>
-                <button class="more-info">More info</button>
-            </div>
-        </div>
-
-        <div class="project">
-            <div class="cover-image">
-                <img src="{% static 'images/picture_2.jpg' %}" alt="">
-            </div>
-            <div class="project-text">
-                <p><span>Architect:</span> Ludwig Mies van der Rohe</p>
-                <p><span>Project:</span> Barcelona Pavilion</p>
-                <p><span>Area:</span> 65 m²</p>
-                <p><span>Location:</span> Barcelona, Spain</p>
-                <p><span>Year:</span> 1928</p>
-            </div>
-            <div class="small-images">
-                <div class="small-image">
+            <div class="project">
+                <div class="cover-image">
                     <img src="{% static 'images/picture_1.jpg' %}" alt="">
                 </div>
-                <div class="small-image">
-                    <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                <div class="project-text">
+                    <p><strong>Architect:</strong> Ludwig Mies van der Rohe</p>
+                    <p><span>Project:</span> Barcelona Pavilion</p>
+                    <p><span>Area:</span> 65 m²</p>
+                    <p><span>Location:</span> Barcelona, Spain</p>
+                    <p><span>Year:</span> 1928</p>
                 </div>
-                <div class="small-image">
+                <div class="small-images">
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_2.jpg' %}" alt="">
+                    </div>
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="save-project">
+                        <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                    </div>
+                    <div class="share-button">
+                        <a href="#"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                    <div class="like-button">
+                        <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
+                    </div>
+                    <button class="more-info">More info</button>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="cover-image">
                     <img src="{% static 'images/picture_1.jpg' %}" alt="">
                 </div>
-            </div>
-            <div class="buttons">
-                <div class="save-project">
-                    <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                <div class="project-text">
+                    <p><span>Architect:</span> Ludwig Mies van der Rohe</p>
+                    <p><span>Project:</span> Barcelona Pavilion</p>
+                    <p><span>Area:</span> 65 m²</p>
+                    <p><span>Location:</span> Barcelona, Spain</p>
+                    <p><span>Year:</span> 1928</p>
                 </div>
-                <div class="share-button">
-                    <a href="#"><i class="fa-solid fa-share"></i></a>
+                <div class="small-images">
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_2.jpg' %}" alt="">
+                    </div>
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                    </div>
                 </div>
-                <div class="like-button">
-                    <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
+                <div class="buttons">
+                    <div class="save-project">
+                        <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                    </div>
+                    <div class="share-button">
+                        <a href="#"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                    <div class="like-button">
+                        <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
+                    </div>
+                    <button class="more-info">More info</button>
                 </div>
-                <button class="more-info">More info</button>
+            </div>
+
+            <div class="project">
+                <div class="cover-image">
+                    <img src="{% static 'images/picture_2.jpg' %}" alt="">
+                </div>
+                <div class="project-text">
+                    <p><span>Architect:</span> Ludwig Mies van der Rohe</p>
+                    <p><span>Project:</span> Barcelona Pavilion</p>
+                    <p><span>Area:</span> 65 m²</p>
+                    <p><span>Location:</span> Barcelona, Spain</p>
+                    <p><span>Year:</span> 1928</p>
+                </div>
+                <div class="small-images">
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_1.jpg' %}" alt="">
+                    </div>
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_3.jpg' %}" alt="">
+                    </div>
+                    <div class="small-image">
+                        <img src="{% static 'images/picture_1.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="save-project">
+                        <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                    </div>
+                    <div class="share-button">
+                        <a href="#"><i class="fa-solid fa-share"></i></a>
+                    </div>
+                    <div class="like-button">
+                        <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
+                    </div>
+                    <button class="more-info">More info</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="jobs">
+            <div class="job">
+                <div class="job-header">
+                    <h3>Residential Architect</h3>
+                </div>
+                <div class="job-details">
+                    <p class="job-pricing"><strong>Pricing:</strong> $50/hour</p>
+                    <p class="job-description">
+                        Looking for an architect to design a modern family home. Experience with sustainable materials
+                        and 3D rendering tools (e.g., AutoCAD, SketchUp) is required.
+                    </p>
+                    <p class="job-date"><strong>Date Posted:</strong> November 18, 2024</p>
+                    <a href="#" class="more-info">More Info</a>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>Interior Designer</h3>
+                </div>
+                <div class="job-details">
+                    <p class="job-pricing"><strong>Pricing:</strong> Milestone-based</p>
+                    <p class="job-description">
+                        Seeking a skilled interior designer to redesign a luxury apartment. Must provide mood boards,
+                        furniture suggestions, and layouts in tools like Revit or Photoshop.
+                    </p>
+                    <p class="job-date"><strong>Date Posted:</strong> November 19, 2024</p>
+                    <a href="#" class="more-info">More Info</a>
+                </div>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <h3>Landscape Architect</h3>
+                </div>
+                <div class="job-details">
+                    <p class="job-pricing"><strong>Pricing:</strong> $25/hour</p>
+                    <p class="job-description">
+                        Hiring a landscape architect for a commercial project. Must create designs that integrate
+                        greenery and hardscape elements using tools like Rhino or Lumion.
+                    </p>
+                    <p class="job-date"><strong>Date Posted:</strong> November 20, 2024</p>
+                    <a href="#" class="more-info">More Info</a>
+                </div>
             </div>
         </div>
-
-    </div>
-    <div class="jobs">
-        <div class="job">
-            <div class="job-header">
-                <h3>Residential Architect</h3>
-            </div>
-            <div class="job-details">
-                <p class="job-pricing"><strong>Pricing:</strong> $50/hour</p>
-                <p class="job-description">
-                    Looking for an architect to design a modern family home. Experience with sustainable materials and 3D rendering tools (e.g., AutoCAD, SketchUp) is required.
-                </p>
-                <p class="job-date"><strong>Date Posted:</strong> November 18, 2024</p>
-                <a href="#" class="more-info">More Info</a>
-            </div>
-        </div>
-
-        <div class="job">
-            <div class="job-header">
-                <h3>Interior Designer</h3>
-            </div>
-            <div class="job-details">
-                <p class="job-pricing"><strong>Pricing:</strong> Milestone-based</p>
-                <p class="job-description">
-                    Seeking a skilled interior designer to redesign a luxury apartment. Must provide mood boards, furniture suggestions, and layouts in tools like Revit or Photoshop.
-                </p>
-                <p class="job-date"><strong>Date Posted:</strong> November 19, 2024</p>
-                <a href="#" class="more-info">More Info</a>
-            </div>
-        </div>
-
-        <div class="job">
-            <div class="job-header">
-                <h3>Landscape Architect</h3>
-            </div>
-            <div class="job-details">
-                <p class="job-pricing"><strong>Pricing:</strong> $25/hour</p>
-                <p class="job-description">
-                    Hiring a landscape architect for a commercial project. Must create designs that integrate greenery and hardscape elements using tools like Rhino or Lumion.
-                </p>
-                <p class="job-date"><strong>Date Posted:</strong> November 20, 2024</p>
-                <a href="#" class="more-info">More Info</a>
-            </div>
-        </div>
-    </div>
-</main>
-
-<footer>
-
-</footer>
-<script src="{% static 'scripts/searchBar.js' %}"></script>
-
-</body>
-</html>
+    </main>
+{% endblock %}

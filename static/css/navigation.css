@@ -4,29 +4,32 @@ nav {
     background-color: #1E1E1E;
     z-index: 1000;
     width: 100%;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 nav a {
-    padding: 0 20px;
-    font-size: 18px;
+    padding: 0 1.25rem;
+    font-size: 1.1rem;
     color: #8994A3;
     border-right: #8994A3 2px solid;
     text-decoration-color: transparent;
-    text-underline-offset: 3px;
-    transition: text-decoration-color 0.3s ease-in-out, text-underline-offset 0.3s ease-in-out;
+    text-underline-offset: 0.2rem;
+    transition:
+        text-decoration-color 0.3s ease-in-out,
+        text-underline-offset 0.3s ease-in-out;
 }
 
 nav a:hover {
     color: #ECEFF5;
-    text-underline-offset: 6px;
+    text-underline-offset: 0.4rem;
     text-decoration-color: #13AFF0;
-    transition: color 0.2s ease-in-out,
-                text-decoration-color 0.3s ease-in-out,
-                text-underline-offset 0.3s ease-in-out;
+    transition:
+        color 0.2s ease-in-out,
+        text-decoration-color 0.3s ease-in-out,
+        text-underline-offset 0.3s ease-in-out;
 }
 
 .button {
@@ -36,12 +39,11 @@ nav a:hover {
 .register {
     background-color: #13AFF0;
     color: #1E1E1E;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 0.6rem 1.25rem;
+    border-radius: 0.5rem;
     transition:
         background-color 0.3s ease-in-out,
-        color 0.3s ease-in-out
-    ;
+        color 0.3s ease-in-out;
 }
 
 .register:hover {

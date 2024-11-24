@@ -1,0 +1,48 @@
+/* responsive.css */
+
+/* Extra small devices (phones, < 576px) */
+@media (max-width: 575.98px) {
+  body {
+    flex-direction: column;
+  }
+
+  main {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .projects, .jobs {
+    width: 100%;
+    flex: 1 0 auto;
+  }
+
+  .project .buttons div {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+/* Small devices (tablets, ≥ 576px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .small-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium devices (desktops, ≥ 768px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .project, .job {
+    font-size: 15px;
+  }
+}
+
+/* Large devices (desktops, ≥ 992px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/* Extra large devices (≥ 1200px) */
+@media (min-width: 1200px) {
+
+}

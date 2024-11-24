@@ -13,6 +13,19 @@
     <a href="#">Projects</a>
     <a href="#">Jobs</a>
     <a href="#">About</a>
-    <a class="button login" href="#">Log in</a>
-    <a class="button register" href="#">Sign up</a>
+    {% if user.is_authenticated %}
+        <a class="button logout" href="{% url 'log-out' %}"
+           onclick="event.preventDefault(); document.getElementById('log-out-form').submit()">Log out</a>
+        <div class="user-circle">
+            <a href="#">{{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}</a>
+        </div>
+    {% else %}
+        <a class="button login" href="{% url 'log-in' %}">Log in</a>
+        <a class="button register" href="{% url 'register' %}">Sign up</a>
+    {% endif %}
 </nav>
+
+
+<form id="log-out-form" method="post" action="{% url 'log-out' %}" style="display: none">
+    {% csrf_token %}
+</form>

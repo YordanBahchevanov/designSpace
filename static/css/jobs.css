@@ -1,18 +1,20 @@
 .jobs {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1rem;
     flex: 0 0 40%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .job {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.6rem;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    padding: 15px;
+    border-radius: 0.3rem;
+    padding: 1rem;
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
@@ -30,7 +32,7 @@
 }
 
 .job-header h3 {
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: bold;
     margin: 0;
     color: #333333;
@@ -39,13 +41,13 @@
 .job-details {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .job-details p {
     margin: 0;
     color: #555555;
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 1.4;
 }
 

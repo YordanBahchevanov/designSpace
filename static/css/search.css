@@ -7,8 +7,8 @@
 .search-icon {
     background: none;
     color: #8994A3;
-    border-right: #8994A3 2px solid;
-    font-size: 18px;
+    border-right: 2px solid #8994A3;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
@@ -22,11 +22,11 @@
 
 .search-input {
     width: 0;
-    padding: 10px 10px;
-    margin: 0 10px;
-    font-size: 16px;
-    border: 2px solid #8994A3;
-    border-radius: 8px;
+    padding: 0.3rem 0.3rem;
+    margin: 0 0.3rem;
+    font-size: 1rem;
+    border: 1px solid #8994A3;
+    border-radius: 5px;
     transition: width 0.3s ease-in-out;
     opacity: 0;
     visibility: hidden;
@@ -41,7 +41,7 @@
 
 .search-input::placeholder {
     font-family: FontAwesome, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     color: #8994A3;
     content: "\f002";
     transition: color 0.3s ease-in-out;
@@ -52,7 +52,7 @@
 }
 
 .search-container.active .search-input {
-    width: 300px;
+    width: 18.75rem;
     opacity: 1;
     visibility: visible;
 }
