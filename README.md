@@ -40,6 +40,7 @@ bash
 Copy code
 git clone https://github.com/YordanBahchevanov/designSpace.git
 cd designSpace
+
 Install dependencies:
 
 bash
