@@ -5,28 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0002_alter_profile_first_name_alter_profile_last_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0003_alter_profile_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/common/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/jobs.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/jobs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/layout.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/projects.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/projects.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +115,7 @@
       <updated>1731265661381</updated>
       <workItem from="1731265669510" duration="3532000" />
       <workItem from="1731749994751" duration="20408000" />
-      <workItem from="1731783163349" duration="87007000" />
+      <workItem from="1731783163349" duration="88221000" />
     </task>
     <servers />
   </component>
