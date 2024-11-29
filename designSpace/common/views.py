@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 
+from designSpace.projects.models import Project
+
 
 # class HomePage(ListView):
 #     model = Photo
@@ -31,3 +33,13 @@ from django.views.generic import ListView
 #             )
 #
 #         return queryset  # Return the new queryset
+
+
+class HomePage(ListView):
+    model = Project
+    template_name = "common/home.html"
+    context_object_name = "all_projects"
+    paginate_by = 3
+
+    def get_queryset(self):
+        return Project.objects.all()

@@ -1,0 +1,38 @@
+<form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+
+    <!-- Project Form -->
+    <h2 class="h5">Project Details</h2>
+    <div class="card p-3 mb-4">
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ field.errors|join:", " }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Image Formset -->
+    <h2 class="h5">Upload Images</h2>
+    <div class="card p-3 mb-4">
+        {{ image_formset.management_form }}
+        {% for image_form in image_formset %}
+            <div class="mb-3">
+                {{ image_form.image.label_tag }}
+                {{ image_form.image }}
+                {% if image_form.image.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ image_form.image.errors|join:", " }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Project</button>
+</form>
