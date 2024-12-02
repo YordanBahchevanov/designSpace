@@ -55,6 +55,22 @@ h2 {
     margin-top: 1rem;
 }
 
+.form p a {
+    color: #13AFF0;
+    text-underline-offset: 0.2rem;
+    transition:
+        text-decoration-color 0.3s ease-in-out,
+        text-underline-offset 0.3s ease-in-out;
+}
+
+.form p a:hover {
+    text-underline-offset: 0.4rem;
+    transition:
+    color 0.2s ease-in-out,
+    text-decoration-color 0.3s ease-in-out,
+    text-underline-offset 0.3s ease-in-out;
+}
+
 .error-message p {
     color: #ff4d4d;
     font-size: 0.875rem;

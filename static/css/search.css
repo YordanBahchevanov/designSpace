@@ -60,3 +60,45 @@
 .search-input:focus {
     outline: none;
 }
+
+.search-results {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ECEFF5;
+    color: #1E1E1E;
+    border: 1px solid #8994A3;
+    border-radius: 5px;
+    z-index: 2;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 18.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-container.active .search-results {
+    display: block; /* Show when the search bar is active */
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.result-item:hover {
+    background: #ddd;
+}
+
+.no-results {
+    padding: 10px;
+    color: #8994A3;
+    text-align: center;
+}
+
+.highlight {
+    background-color: yellow;
+    font-weight: bold;
+}

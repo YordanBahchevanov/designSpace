@@ -11,7 +11,7 @@
     </div>
     <a href="{% url 'home' %}">Home</a>
     <a href="#">Projects</a>
-    <a href="#">Jobs</a>
+    <a href="#">News</a>
     <a href="#">About</a>
     {% if user.is_authenticated %}
         <a class="button logout" href="{% url 'log-out' %}"
@@ -24,7 +24,6 @@
         <a class="button register" href="{% url 'register' %}">Sign up</a>
     {% endif %}
 </nav>
-
 
 <form id="log-out-form" method="post" action="{% url 'log-out' %}" style="display: none">
     {% csrf_token %}

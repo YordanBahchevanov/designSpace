@@ -1,45 +1,57 @@
+from django.db.models import Q
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.generic import ListView
-
 from designSpace.projects.models import Project
 
 
-# class HomePage(ListView):
-#     model = Photo
-#     template_name = 'common/home-page.html'
-#     context_object_name = 'all_photos'  # by default is object_list and photos
-#     paginate_by = 10
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#
-#         context['comment_form'] = CommentForm()
-#         context['search_form'] = SearchForm(self.request.GET)
-#
-#         user = self.request.user
-#
-#         for photo in context['all_photos']:
-#             photo.has_liked = photo.like_set.filter(user=user).exists() if user.is_authenticated else False
-#
-#         return context
-#
-#     def get_queryset(self):
-#         queryset = super().get_queryset()  # All objects
-#         pet_name = self.request.GET.get('pet_name')
-#
-#         if pet_name:
-#             queryset = queryset.filter(  # Filter the objects
-#                 tagged_pets__name__icontains=pet_name
-#             )
-#
-#         return queryset  # Return the new queryset
-
-
-class HomePage(ListView):
+class HomePageView(ListView):
     model = Project
-    template_name = "common/home.html"
-    context_object_name = "all_projects"
+    template_name = 'common/home.html'
+    context_object_name = 'projects'
     paginate_by = 3
 
-    def get_queryset(self):
-        return Project.objects.all()
+    def render_to_response(self, context, **response_kwargs):
+        if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            projects = context['object_list']
+            data = {
+                'projects': [
+                    {
+                        'title': project.title,
+                        'location': project.location,
+                        'area': project.area,
+                        'year': project.year,
+                        'cover_image': project.cover_image.url,
+                        'creator': {
+                            'username': project.creator.username,
+                            'display_name': project.creator.profile.full_name or project.creator.username,
+                            'profile_picture': project.creator.profile.profile_picture.url if project.creator.profile.profile_picture else None,
+                        },
+                        'id': project.id,
+                        'images': [
+                            image.image.url for image in project.images.all()
+                        ]
+                    }
+                    for project in projects
+                ],
+                'has_next': context['page_obj'].has_next()
+            }
+            return JsonResponse(data)
+
+        return super().render_to_response(context, **response_kwargs)
+
+
+
+def ajax_search_projects(request):
+    query = request.GET.get('q', '').strip()
+    projects = Project.objects.none()
+
+    if query:
+        projects = Project.objects.filter(
+            Q(title__icontains=query) |
+            Q(location__icontains=query) |
+            Q(creator__username__icontains=query)
+        )
+
+    data = list(projects.values('title', 'location', 'creator__username', 'id'))
+    return JsonResponse({'projects': data})

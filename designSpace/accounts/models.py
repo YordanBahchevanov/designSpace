@@ -65,14 +65,22 @@ class Profile(models.Model):
         null=True
     )
 
-    def __str__(self):
+    @property
+    def full_name(self):
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
         elif self.first_name:
             return self.first_name
         elif self.last_name:
             return self.last_name
-        return "Anonymous"
+        return None
+
+    @property
+    def display_name(self):
+        return self.full_name or self.user.username
+
+    def __str__(self):
+        return self.full_name or "Anonymous"
 
 
 

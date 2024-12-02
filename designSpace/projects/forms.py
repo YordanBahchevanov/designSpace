@@ -29,25 +29,6 @@ class ProjectCreateForm(forms.ModelForm):
             raise forms.ValidationError(f"Year must be between 1900 and {current_year}.")
         return year
 
-
-# class GalleryImageField(forms.FileField):
-#     def __init__(self, *args, **kwargs):
-#         kwargs.setdefault('widget', forms.ClearableFileInput(attrs={'multiple': True}))
-#         kwargs['required'] = False
-#         super().__init__(*args, **kwargs)
-
-
-# class ImageForm(forms.ModelForm):
-#     image_gallery = forms.ImageField(
-#         label="Image Gallery",
-#         widget=forms.ClearableFileInput(attrs={'allow_multiple_selected': True}),
-#         required=False,
-#     )
-#
-#     class Meta:
-#         model = ProjectImage
-#         fields = ("image",)
-
 class ProjectImageForm(forms.ModelForm):
     class Meta:
         model = ProjectImage

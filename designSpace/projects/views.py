@@ -1,9 +1,19 @@
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+from rest_framework.generics import ListCreateAPIView
+from rest_framework.permissions import IsAuthenticated
 
-from designSpace.projects.forms import ProjectCreateForm, ProjectImageFormSet
-from designSpace.projects.models import Project, ProjectImage
+from .forms import ProjectCreateForm, ProjectImageFormSet
+from .models import Project, ProjectImage
+from .serializers import ProjectSerializer
+
+
+class ListProjectView(ListCreateAPIView):
+    projects = Project.objects.prefetch_related('images').select_related('creator')
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class ProjectCreateView(CreateView):

@@ -1,0 +1,34 @@
+{% for project in projects %}
+    {% if forloop.last %}
+    <div class="project" id="project-{{ project.id }}" hx-trigger="revealed" hx-get="{% url 'home' %}">
+    {% else %}
+    <div class="project" id="project-{{ project.id }}">
+        {% endif %}
+    
+            <div class="cover-image">
+                <img src="{{ project.cover_image.url }}" alt="Cover Image">
+            </div>
+    
+            <div class="project-text">
+                <p><strong>Published by:</strong> {{ project.creator.username }}</p>
+                <p><span>Project:</span> {{ project.title }}</p>
+                <p><span>Area:</span> {{ project.area }} m²</p>
+                <p><span>Location:</span> {{ project.location }}</p>
+                <p><span>Year:</span> {{ project.year }}</p>
+            </div>
+    
+            <div class="small-images">
+                {% with project.images.all|slice:":3" as displayed_images %}
+                    {% for image in displayed_images %}
+                        <div class="small-image {% if forloop.last and project.images.count > 3 %}more-images{% endif %}">
+                            <img src="{{ image.image.url }}" alt="Gallery Image">
+                            {% if forloop.last and project.images.count > 3 %}
+                                <span class="more-count">+{{ project.images.count|add:"-3" }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endwith %}
+            </div>
+    
+    </div>
+{% endfor %}

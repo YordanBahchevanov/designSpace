@@ -7,11 +7,20 @@ body {
     background-color: #ECEFF5;
 }
 
-main {
+.layout-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     padding: 1rem 0;
     gap: 1.25rem;
     width: 70%;
+}
+
+main {
+    flex: 3;
+    width: 60%;
+}
+
+aside {
+    flex: 2;
+    width: 40%;
 }
