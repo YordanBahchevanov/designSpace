@@ -17,7 +17,7 @@
         <a class="button logout" href="{% url 'log-out' %}"
            onclick="event.preventDefault(); document.getElementById('log-out-form').submit()">Log out</a>
         <div class="user-circle">
-            <a href="#">{{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}</a>
+            <a href="{% url 'profile' %}">{{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}</a>
         </div>
     {% else %}
         <a class="button login" href="{% url 'log-in' %}">Log in</a>

@@ -3,9 +3,10 @@ from django.contrib.auth import get_user_model, login
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from designSpace.accounts.forms import CustomUserCreationForm
+from designSpace.projects.models import Project
 
 UserModel = get_user_model()
 
@@ -44,3 +45,14 @@ class UserLoginView(LoginView):
         context = super().get_context_data(**kwargs)
         context['title'] = "Welcome back to DesignSpace!"
         return context
+
+
+class ProfileView(ListView):
+    model = Project
+    template_name = 'accounts/profile-details-page.html'
+    context_object_name = 'projects'
+
+    # paginate_by = 6
+
+    def get_queryset(self):
+        return Project.objects.filter(creator=self.request.user).order_by('-created_at')

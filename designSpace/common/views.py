@@ -1,6 +1,5 @@
 from django.db.models import Q
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.views.generic import ListView
 from designSpace.projects.models import Project
 
