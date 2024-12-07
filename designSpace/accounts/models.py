@@ -1,9 +1,12 @@
+from cloudinary.api import delete_resources_by_prefix, delete_folder
+from cloudinary.models import CloudinaryField
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from designSpace.accounts.managers import AppUserManager
+from designSpace.accounts.utils import get_profile_image_folder
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -59,8 +62,9 @@ class Profile(models.Model):
         null = True,
     )
 
-    profile_picture = models.ImageField(
-        upload_to='',
+    profile_picture = CloudinaryField(
+        'profile picture',
+        folder=get_profile_image_folder,
         blank=True,
         null=True
     )
@@ -81,6 +85,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.full_name or "Anonymous"
+
+    def delete(self, *args, **kwargs):
+        folder_path = f"users/{self.user.username}/"
+        delete_resources_by_prefix(folder_path)
+        delete_folder(folder_path)
+
+        self.user.delete()
+        super().delete(*args, **kwargs)
 
 
 

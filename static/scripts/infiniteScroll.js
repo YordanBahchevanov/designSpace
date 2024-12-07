@@ -50,9 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p><span>Location:</span> ${project.location}</p>
                 <p><span>Year:</span> ${project.year}</p>
             </div>
-            <div class="small-images">
+            <div class="project-gallery">
                 ${project.images.slice(0, 3).map((image, index) => `
-                    <div class="small-image ${index === 2 && project.images.length > 3 ? 'more-images' : ''}">
+                    <div class="gallery-image ${index === 2 && project.images.length > 3 ? 'more-images' : ''}">
                         <img src="${image}" alt="Gallery Image">
                         ${index === 2 && project.images.length > 3 ? `<span class="more-count">+${project.images.length - 3}</span>` : ''}
                     </div>
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="like-button">
                     <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
                 </div>
-                <button class="more-info">More info</button>
+                <button class="more-info">More info &raquo;</button>
             </div>
         `;
             container.appendChild(projectDiv);

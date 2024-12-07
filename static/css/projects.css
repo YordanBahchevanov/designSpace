@@ -76,22 +76,22 @@
     pointer-events: auto;
 }
 
-.small-images {
+.project-gallery {
     flex: 0 0 35%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.6rem;
     align-items: stretch;
 }
 
-.small-image {
+.gallery-image {
     position: relative;
-    width: 100%; /* Ensures each grid item takes full column width */
-    aspect-ratio: 1 / 1; /* Forces a square shape */
-    overflow: hidden; /* Ensures no overflow if images are larger */
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 }
 
-.small-image img {
+.gallery-image img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures images fill the container */

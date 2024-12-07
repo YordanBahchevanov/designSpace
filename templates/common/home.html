@@ -17,10 +17,10 @@
                         <p><span>Location:</span> {{ project.location }}</p>
                         <p><span>Year:</span> {{ project.year }}</p>
                     </div>
-                    <div class="small-images">
+                    <div class="project-gallery">
                         {% with project.images.all|slice:":3" as displayed_images %}
                             {% for image in displayed_images %}
-                            <div class="small-image {% if forloop.last and project.images.count > 3 %}more-images{% endif %}">
+                            <div class="gallery-image {% if forloop.last and project.images.count > 3 %}more-images{% endif %}">
                                 <img src="{{ image.image.url }}" alt="Gallery Image">
                                 {% if forloop.last and project.images.count > 3 %}
                                 <span class="more-count">+{{ project.images.count|add:"-3" }}</span>
@@ -39,7 +39,7 @@
                         <div class="like-button">
                             <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
                         </div>
-                        <button class="more-info">More info</button>
+                        <button class="more-info">More info &raquo;</button>
                     </div>
                 </div>
             {% endfor %}

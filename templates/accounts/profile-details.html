@@ -1,0 +1,75 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block content %}
+    <div class="profile-page-container">
+        <div class="profile-container">
+            <div class="profile-circle-container">
+                <div class="profile-circle">
+                {% if user.profile.profile_picture %}
+                    <a href="{% url 'profile-edit' pk=request.user.pk %}">
+                        <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.profile.display_name }}" class="profile-img">
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile-edit' pk=request.user.pk %}">
+                        {{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}
+                    </a>
+                {% endif %}
+                </div>
+                <p><b>{{ user.profile.display_name }}</b></p>
+                <p><b>{{ user.email }}</b></p>
+            </div>
+            <div class="profile-links-container">
+                <a href="{% url 'projects:create-project' %}" class="profile-link">Create a Project</a>
+                <a href="#" class="profile-link">My Articles</a>
+                <a href="#" class="profile-link">My Folders</a>
+            </div>
+            <a class="delete-icon" href="{% url 'profile-delete' pk=request.user.pk %}">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+        <div class="projects-container">
+            {% for project in projects %}
+                <div class="profile-project">
+                    <a href="#">
+                        <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+                        <h4>{{ project.title }}</h4>
+                    </a>
+                </div>
+            {% endfor %}
+
+            {% for _ in empty_slots|range_filter %}
+                <div class="profile-project empty">
+                    {% if forloop.first %}
+                    <a href="{% url 'projects:create-project' %}" class="add-project-link">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="pagination-container">
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page=1">&laquo; First</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                {% endif %}
+                {% for num in paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="active"><span>{{ num }}</span></li>
+                    {% else %}
+                        <li><a href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                    <li><a href="?page={{ paginator.num_pages }}">Last &raquo;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}

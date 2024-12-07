@@ -9,16 +9,31 @@
                 placeholder=""
         >
     </div>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="#">Projects</a>
-    <a href="#">News</a>
-    <a href="#">About</a>
+    <div class="main-nav">
+        <a href="{% url 'home' %}">Home</a>
+        {% if request.path == '/accounts/profile/'|add:user.pk|add:'/' %}
+            <a href="{% url 'projects:create-project' %}">Publish</a>
+        {% endif %}
+        <a href="#">News</a>
+        <a href="#">About</a>
+    </div>
     {% if user.is_authenticated %}
         <a class="button logout" href="{% url 'log-out' %}"
            onclick="event.preventDefault(); document.getElementById('log-out-form').submit()">Log out</a>
-        <div class="user-circle">
-            <a href="{% url 'profile' %}">{{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}</a>
-        </div>
+        
+        {% if request.path == '/accounts/profile/'|add:user.pk|add:'/' %}
+            <div class="profile-circle">
+                {% if user.profile.profile_picture %}
+                    <a href="{% url 'profile-details' pk=request.user.pk %}">
+                        <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.profile.display_name }}" class="profile-img">
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile-details' pk=request.user.pk %}">
+                        {{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
     {% else %}
         <a class="button login" href="{% url 'log-in' %}">Log in</a>
         <a class="button register" href="{% url 'register' %}">Sign up</a>

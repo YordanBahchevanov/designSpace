@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="form-body">
+    <div class="form-container">
+        <div class="close-button">
+            <a href="{% url 'profile-details' pk=request.user.pk %}">&times;</a>
+        </div>
+        <h2>Confirm Profile Deletion</h2>
+    
+
+        <p>Are you sure you want to delete your profile?</p>
+    
+        <form method="post" action="{% url 'profile-delete' pk=request.user.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Delete</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function (e) {
+                const confirmed = confirm("Are you absolutely sure you want to delete your profile? This action is irreversible.");
+                if (!confirmed) {
+                    e.preventDefault(); // Stop the form submission if the user cancels
+                }
+            });
+        });
+    </script>
+</body>
+</html>

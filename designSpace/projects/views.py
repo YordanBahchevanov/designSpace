@@ -1,3 +1,5 @@
+from cloudinary.uploader import upload
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -16,12 +18,12 @@ class ListProjectView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     form_class = ProjectCreateForm
     template_name = "projects/create-project.html"
     success_url = reverse_lazy("home")
-
+    login_url = reverse_lazy('log-in')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.POST:
@@ -42,3 +44,8 @@ class ProjectCreateView(CreateView):
                     ProjectImage.objects.create(project=project, image=image_form.cleaned_data["image"])
 
         return redirect(self.success_url)
+
+    def get_login_url(self):
+        return f"{reverse_lazy('log-in')}?next={self.request.path}"
+
+

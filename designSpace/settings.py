@@ -38,6 +38,7 @@ MY_APPS = [
     'designSpace.accounts',
     'designSpace.common',
     'designSpace.projects',
+    'designSpace.articles',
 ]
 
 INSTALLED_APPS = [
@@ -57,8 +58,6 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'drf_spectacular',
-
-    'django_htmx',
 
 ] + MY_APPS
 
@@ -86,7 +85,6 @@ SPECTACULAR_SETTINGS = {
 
 
 MIDDLEWARE = [
-    'django_htmx.middleware.HtmxMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

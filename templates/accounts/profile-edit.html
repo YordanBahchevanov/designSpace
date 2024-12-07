@@ -5,24 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
+    <title>Edit Profile</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body class="form-body">
     <div class="form-container">
-
         <div class="close-button">
-            <a href="{% url 'home' %}">&times;</a>
+            <a href="{% url 'profile-details' pk=request.user.pk %}">&times;</a>
         </div>
-    
-        <form method="post" class="form" action="{% url 'log-in' %}">
+        <form method="post" class="form" enctype="multipart/form-data">
             {% csrf_token %}
-            <h2>{{ title }}</h2>
-        
-            {% if request.GET.next %}
-                <input type="hidden" name="next" value="{{ request.GET.next }}">
-            {% endif %}
-        
+            <h2>Edit Profile</h2>
+            
             {% for field in form %}
                 <div class="form-group">
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>
@@ -37,9 +31,18 @@
                 </div>
             {% endfor %}
         
-            <button type="submit" class="btn-submit">Log in</button>
+            {% if form.instance.profile_picture %}
+                <div class="existing-picture">
+                    <p>Current Profile Picture: 
+                        <a href="{{ form.instance.profile_picture.url }}" target="_blank" class="profile-link">View</a>
+                    </p>
+                    <label>
+                        <input type="checkbox" name="remove_profile_picture"> Remove current profile picture
+                    </label>
+                </div>
+            {% endif %}
         
-            <p>Not registered yet? <a href="{% url 'register' %}">Sign up</a></p>
+            <button type="submit" class="btn-submit">Save Changes</button>
         </form>
     </div>
 </body>
