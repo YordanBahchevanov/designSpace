@@ -1,14 +1,15 @@
 from cloudinary.uploader import upload
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, DetailView
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 
 from .forms import ProjectCreateForm, ProjectImageFormSet
 from .models import Project, ProjectImage
 from .serializers import ProjectSerializer
+from ..accounts.models import Profile
 
 
 class ListProjectView(ListCreateAPIView):
@@ -24,6 +25,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = "projects/create-project.html"
     success_url = reverse_lazy("home")
     login_url = reverse_lazy('log-in')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.POST:
@@ -38,6 +40,7 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
         project.save()
 
         image_formset = ProjectImageFormSet(self.request.POST, self.request.FILES)
+
         if image_formset.is_valid():
             for image_form in image_formset:
                 if image_form.cleaned_data.get("image"):
@@ -47,5 +50,36 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     def get_login_url(self):
         return f"{reverse_lazy('log-in')}?next={self.request.path}"
+
+
+class ProjectDetailsView(LoginRequiredMixin, DetailView):
+    model = Project
+    template_name = 'projects/project-details.html'
+    context_object_name = 'project'
+
+    def get_object(self, queryset=None):
+        # Retrieve project by slug
+        return get_object_or_404(Project, slug=self.kwargs['slug'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        project = self.get_object()
+
+        # Fetch profile based on the creator of the project
+        profile_user = get_object_or_404(Profile, user=project.creator)
+        context['profile'] = profile_user
+
+        # Determine if the current user is the project creator
+        context['is_creator'] = self.request.user == project.creator
+
+        # Calculate the number of images (accounting for cover image and gallery)
+        num_images = project.images.count()
+
+        # Assume 6 is the max slot for images
+        context['empty_slots'] = max(6 - num_images, 0)
+
+        return context
+
 
 

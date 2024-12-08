@@ -34,6 +34,7 @@ class LoginForm(forms.Form):
         widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
     )
 
+
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile

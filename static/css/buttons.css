@@ -126,9 +126,10 @@
     background-color: #0a6287;
 }
 
-.btn-submit {
+.btn-submit,
+.btn-delete{
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.75rem 1.2rem;
     font-size: 1.1rem;
     font-weight: bold;
     color: #ffffff;
@@ -139,7 +140,8 @@
     transition: background-color 0.3s ease;
 }
 
-.btn-submit:hover {
+.btn-submit:hover,
+.btn-delete:hover{
     background-color: #0a6287;
 }
 

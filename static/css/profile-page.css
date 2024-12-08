@@ -83,7 +83,7 @@ body {
 
 .profile-circle-container p {
   color: #13AFF0;
-  cursor: pointer;
+  cursor: default;
 }
 
 .profile-circle-container .profile-circle a  {

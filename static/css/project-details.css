@@ -1,0 +1,133 @@
+.project-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 70%;
+  padding: 1rem 0 0 0;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.delete-icon {
+  position: absolute;
+  bottom: 1.5rem;
+  padding: 0.5rem;
+  background-color: #ECEFF5;
+  border-radius: 50%;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8994A3;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.delete-icon:hover {
+  background-color: #ff4d4d;
+}
+
+.delete-icon:hover .fa-trash {
+  color: #ECEFF5;
+}
+
+.project-info:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.project-cover-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.project-cover-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.3rem;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0.35rem;
+  border-radius: 0.4rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.project-image:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.profile-project.empty {
+  background-color: rgb(255, 255, 255);
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4rem;
+  min-height: 26vh;
+}
+
+@media (max-width: 826px) {
+  .project-details-container {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .images-container {
+    width: 100%;
+  }
+
+  .gallery-container {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .project-image img {
+    aspect-ratio: 16 / 9;
+  }
+}

@@ -7,32 +7,52 @@
         <div class="profile-container">
             <div class="profile-circle-container">
                 <div class="profile-circle">
-                {% if user.profile.profile_picture %}
-                    <a href="{% url 'profile-edit' pk=request.user.pk %}">
-                        <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.profile.display_name }}" class="profile-img">
-                    </a>
+                {% if is_own_profile %}
+                    {% if profile.profile_picture %}
+                        <a href="{% url 'profile-edit' pk=profile.user.pk %}">
+                            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.display_name }}" class="profile-img">
+                        </a>
+                    {% else %}
+                        <a href="{% url 'profile-edit' pk=profile.user.pk %}">
+                            {{ profile.first_name|default:"Anonymous"|slice:":1"|upper }}
+                        </a>
+                    {% endif %}
                 {% else %}
-                    <a href="{% url 'profile-edit' pk=request.user.pk %}">
-                        {{ user.profile.first_name|default:"Anonymous"|slice:":1"|upper }}
-                    </a>
+                    {% if profile.profile_picture %}
+                        <a href="#">
+                            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.display_name }}" class="profile-img">
+                        </a>
+                    {% else %}
+                        <a href="#">
+                            {{ profile.first_name|default:"Anonymous"|slice:":1"|upper }}
+                        </a>
+                    {% endif %}
                 {% endif %}
                 </div>
-                <p><b>{{ user.profile.display_name }}</b></p>
-                <p><b>{{ user.email }}</b></p>
+                <p><b>{{ profile.display_name }}</b></p>
+                <p><b>{{ profile.user.email }}</b></p>
             </div>
-            <div class="profile-links-container">
-                <a href="{% url 'projects:create-project' %}" class="profile-link">Create a Project</a>
-                <a href="#" class="profile-link">My Articles</a>
-                <a href="#" class="profile-link">My Folders</a>
-            </div>
-            <a class="delete-icon" href="{% url 'profile-delete' pk=request.user.pk %}">
-                <i class="fa-solid fa-trash"></i>
-            </a>
+        
+            {% if is_own_profile %}
+                <div class="profile-links-container">
+                    <a href="{% url 'projects:create-project' %}" class="profile-link">Create a Project</a>
+                    <a href="#" class="profile-link">My Articles</a>
+                    <a href="#" class="profile-link">My Folders</a>
+                </div>
+                <a class="delete-icon" href="{% url 'profile-delete' pk=profile.user.pk %}">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            {% else %}
+                <div class="profile-links-container">
+                    <a href="#" class="profile-link">Articles</a>
+                </div>
+            {% endif %}
         </div>
+
         <div class="projects-container">
             {% for project in projects %}
                 <div class="profile-project">
-                    <a href="#">
+                    <a href="{% url 'projects:project-details' slug=project.slug %}">
                         <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
                         <h4>{{ project.title }}</h4>
                     </a>
@@ -41,10 +61,12 @@
 
             {% for _ in empty_slots|range_filter %}
                 <div class="profile-project empty">
-                    {% if forloop.first %}
-                    <a href="{% url 'projects:create-project' %}" class="add-project-link">
-                        <i class="fa-solid fa-plus"></i>
-                    </a>
+                    {% if is_own_profile %}
+                        {% if forloop.first %}
+                        <a href="{% url 'projects:create-project' %}" class="add-project-link">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endfor %}

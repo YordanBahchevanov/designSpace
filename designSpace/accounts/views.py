@@ -66,11 +66,17 @@ class ProfileDetailsView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        num_projects = context['projects'].count()
-        context['empty_slots'] = max(6 - num_projects, 0)
 
-        context['profile'] = get_object_or_404(Profile, user__pk=self.kwargs['pk'])
+        profile_user = get_object_or_404(Profile, user__pk=self.kwargs['pk'])
+        context['profile'] = profile_user
+
+        context['is_own_profile'] = self.request.user == profile_user.user
+
+        num_projects = context['projects'].count()
+        context['empty_slots'] = max(self.paginate_by - num_projects, 0)
+
         return context
+
 
 
 # class ProfileUpdateView(LoginRequiredMixin, UpdateView):

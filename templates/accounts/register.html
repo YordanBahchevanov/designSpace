@@ -10,9 +10,11 @@
 </head>
 <body class="form-body">
     <div class="form-container">
+    
         <div class="close-button">
             <a href="{% url 'home' %}">&times;</a>
         </div>
+    
         <form method="post" class="form">
             {% csrf_token %}
             <h2>{{ title }}</h2>
@@ -32,6 +34,7 @@
             <button type="submit" class="btn-submit">Sign up</button>
             <p>Already have an account? <a href="{% url 'log-in' %}">Log in</a></p>
         </form>
+    
     </div>
 </body>
 </html>

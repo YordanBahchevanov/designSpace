@@ -44,7 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 <img src="${project.cover_image}" alt="Cover Image">
             </div>
             <div class="project-text">
-                <p><strong>Published by:</strong> ${project.creator ? project.creator.display_name : 'Unknown'}</p>
+                <p>
+                    <span>Published by:</span> 
+                    <a href="${project.creator.profile_url}">
+                        ${project.creator ? project.creator.display_name : 'Unknown'}
+                    </a>
+                </p>
                 <p><span>Project:</span> ${project.title}</p>
                 <p><span>Area:</span> ${project.area || 'N/A'} m²</p>
                 <p><span>Location:</span> ${project.location}</p>
@@ -68,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="like-button">
                     <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
                 </div>
-                <button class="more-info">More info &raquo;</button>
+                <a href="${project.project_url}" class="more-info">More info &raquo;</a>
             </div>
         `;
             container.appendChild(projectDiv);

@@ -11,7 +11,12 @@
                         <img src="{{ project.cover_image.url }}" alt="Cover Image">
                     </div>
                     <div class="project-text">
-                        <p><span>Published by:</span> {{ project.creator.profile.display_name }}</p>
+                        <p>
+                            <span>Published by:</span> 
+                            <a href="{% url 'profile-details' project.creator.id %}">
+                                {{ project.creator.profile.display_name }}
+                            </a>
+                        </p>
                         <p><span>Project:</span> {{ project.title }}</p>
                         <p><span>Area:</span> {% if project.area %}{{ project.area }}{% else %}N/A{% endif %} m²</p>
                         <p><span>Location:</span> {{ project.location }}</p>
@@ -39,7 +44,7 @@
                         <div class="like-button">
                             <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
                         </div>
-                        <button class="more-info">More info &raquo;</button>
+                        <a href="{% url 'projects:project-details' slug=project.slug %}" class="more-info">More info &raquo;</a>
                     </div>
                 </div>
             {% endfor %}

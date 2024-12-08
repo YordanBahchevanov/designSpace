@@ -1,0 +1,56 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+    <div class="project-details-container">
+        <!-- Project Info Section -->
+        <div class="project-info-container">
+            <div class="project-info">
+                <h2>{{ project.title }}</h2>
+                <p><strong>Type:</strong> {{ project.get_project_type_display }}</p>
+                <p><strong>Year:</strong> {{ project.year }}</p>
+                <p><strong>Location:</strong> {{ project.location }}</p>
+                <p><strong>Description:</strong></p>
+                <p>{{ project.description }}</p>
+            </div>
+            <div class="edit-delete-buttons">
+                {% if is_creator %}
+                    <a class="edit-icon" href="#">
+                        <i class="fa-solid fa-edit"></i>
+                    </a>
+                    {#<a href="{% url 'projects:edit-project' project.slug %}">Edit</a>#}
+                    <a class="delete-icon" href="#">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                    {#<a href="{% url 'projects:delete-project' project.slug %}">Delete</a>#}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="images-container">
+            <div class="project-cover-image">
+                <img src="{{ project.cover_image.url }}" alt="Cover Image for {{ project.title }}">
+            </div>
+
+            {% if project.images.all %}
+                <div class="gallery-container">
+                    {% for image in project.images.all %}
+                        <div class="project-image">
+                            <img src="{{ image.image.url }}" alt="Gallery Image for {{ project.title }}">
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="buttons">
+        <div class="save-project">
+            <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+        </div>
+        <div class="share-button">
+            <a href="#"><i class="fa-solid fa-share"></i></a>
+        </div>
+        <div class="like-button">
+            <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
+        </div>
+    </div>
+{% endblock %}

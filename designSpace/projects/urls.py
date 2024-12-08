@@ -11,4 +11,9 @@ app_name = 'projects'
 urlpatterns = [
     path('api/', views.ListProjectView.as_view(), name='projects-list'),
     path('create-project/', views.ProjectCreateView.as_view(), name='create-project'),
+    path('project/<slug:slug>/', include([
+        path('', views.ProjectDetailsView.as_view(), name='project-details'),
+        # path('edit/', views.PetEditPage.as_view(), name='edit-pet'),
+        # path('delete/', views.PetDeletePage.as_view(), name='delete-pet'),
+    ]))
 ]

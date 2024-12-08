@@ -1,7 +1,12 @@
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.http import JsonResponse
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.views import View
 from django.views.generic import ListView, TemplateView
+
+from designSpace.common.utils import serialize_project
 from designSpace.projects.models import Project
 
 
@@ -15,26 +20,8 @@ class HomePageView(ListView):
         if self.request.headers.get('x-requested-with') == 'XMLHttpRequest':
             projects = context['object_list']
             data = {
-                'projects': [
-                    {
-                        'title': project.title,
-                        'location': project.location,
-                        'area': project.area,
-                        'year': project.year,
-                        'cover_image': project.cover_image.url,
-                        'creator': {
-                            'username': project.creator.username,
-                            'display_name': project.creator.profile.full_name or project.creator.username,
-                            'profile_picture': project.creator.profile.profile_picture.url if project.creator.profile.profile_picture else None,
-                        },
-                        'id': project.id,
-                        'images': [
-                            image.image.url for image in project.images.all()
-                        ]
-                    }
-                    for project in projects
-                ],
-                'has_next': context['page_obj'].has_next()
+                'projects': [serialize_project(project) for project in projects],
+                'has_next': context['page_obj'].has_next(),
             }
             return JsonResponse(data)
 
@@ -53,29 +40,28 @@ class SearchView(View):
                 Q(title__icontains=query) |
                 Q(location__icontains=query) |
                 Q(creator__username__icontains=query)
+                # Q(creator__full_name__icontains=query)
             ).distinct()
         else:
             projects = Project.objects.none()
 
         data = {
-            'projects': [
-                {
-                    'title': project.title,
-                    'location': project.location,
-                    'area': project.area,
-                    'year': project.year,
-                    'cover_image': project.cover_image.url,
-                    'creator': {
-                        'username': project.creator.username,
-                        'display_name': project.creator.profile.full_name or project.creator.username,
-                        'profile_picture': project.creator.profile.profile_picture.url if project.creator.profile.profile_picture else None,
-                    },
-                    'id': project.id,
-                    'images': [
-                        image.image.url for image in project.images.all()
-                    ]
-                }
-                for project in projects
-            ]
+            'projects': [serialize_project(project) for project in projects]
         }
         return JsonResponse(data)
+
+
+# @login_required
+# def likes_functionality(request, photo_id: int):
+#     liked_object = Like.objects.filter(
+#         to_project_id=project_pk,
+#         user=request.user
+#     ).first()
+#
+#     if liked_object:
+#         liked_object.delete()
+#     else:
+#         like = Like(to_photo_id=photo_id, user=request.user)
+#         like.save()
+#
+#     return redirect(request.META.get('HTTP_REFERER') + f'#{photo_id}')
