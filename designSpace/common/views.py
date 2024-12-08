@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.http import JsonResponse
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 from designSpace.projects.models import Project
 
 
@@ -54,3 +54,7 @@ def ajax_search_projects(request):
 
     data = list(projects.values('title', 'location', 'creator__username', 'id'))
     return JsonResponse({'projects': data})
+
+
+class AboutView(TemplateView):
+    template_name = 'common/about.html'

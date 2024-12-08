@@ -1,49 +1,9 @@
-{% load static %}
+ <h2>Edit Profile</h2>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
-<body class="form-body">
-    <div class="form-container">
-        <div class="close-button">
-            <a href="{% url 'profile-details' pk=request.user.pk %}">&times;</a>
-        </div>
-        <form method="post" class="form" enctype="multipart/form-data">
-            {% csrf_token %}
-            <h2>Edit Profile</h2>
-            
-            {% for field in form %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    {{ field }}
-                    {% if field.errors %}
-                        <div class="error-message">
-                            {% for error in field.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        
-            {% if form.instance.profile_picture %}
-                <div class="existing-picture">
-                    <p>Current Profile Picture: 
-                        <a href="{{ form.instance.profile_picture.url }}" target="_blank" class="profile-link">View</a>
-                    </p>
-                    <label>
-                        <input type="checkbox" name="remove_profile_picture"> Remove current profile picture
-                    </label>
-                </div>
-            {% endif %}
-        
-            <button type="submit" class="btn-submit">Save Changes</button>
-        </form>
-    </div>
-</body>
-</html>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+        {{ form.as_p }}
+  
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>

@@ -5,48 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0006_alter_profile_profile_picture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0007_alter_profile_profile_picture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/articles/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/accounts/profile-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/articles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/articles/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navigation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/projects.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/projects.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/reset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/masonryPattern.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/log-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/log-in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-details-page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/dropzone.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/project-list-elements.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/barcelona-pavilion/gallery/picture_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/barcelona-pavilion/gallery/picture_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/barcelona-pavilion/gallery/picture_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/barcelona-pavilion/gallery/picture_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/barcelona-pavilion/picture_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/2be1a85125bcf5f8db9ff20971d6b8b4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/InteriorPano1-dc4-1150x700.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/InteriorPano1-dc4-1150x700_7VeoQou.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/cvjh1xqqr0061.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/cvjh1xqqr0061_FGYCYtp.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/metalocus_richard_meier_douglas_house_04_1080.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/metalocus_richard_meier_douglas_house_04_108_Z3dKlJD.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/metalocus_richard_meier_douglas_house_05_1180.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/gallery/metalocus_richard_meier_douglas_house_05_118_IGheUm4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/the_douglas_house_ext_14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/the_douglas_house_ext_14_hsE1nzV.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/yordan/projects/douglas-house/the_douglas_house_ext_14_tzulkmF.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,9 +28,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="CSS File" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -118,8 +86,8 @@
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\templates\accounts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\static\scripts" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace" />
+      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\static\scripts" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\templates\common" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\static" />
@@ -276,7 +244,7 @@
       <workItem from="1732785678390" duration="75933000" />
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
-      <workItem from="1733510624077" duration="45454000" />
+      <workItem from="1733510624077" duration="48619000" />
     </task>
     <servers />
   </component>

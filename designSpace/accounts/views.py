@@ -73,26 +73,52 @@ class ProfileDetailsView(LoginRequiredMixin, ListView):
         return context
 
 
+# class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+#     model = Profile
+#     form_class = ProfileEditForm
+#     template_name = 'accounts/profile-edit.html'
+#
+#     def get_object(self, queryset=None):
+#         return get_object_or_404(Profile, user=self.request.user)
+#
+#     def form_valid(self, form):
+#
+#         if self.request.POST.get('remove_profile_picture') and self.object.profile_picture:
+#             public_id = self.object.profile_picture.public_id
+#             cloudinary.uploader.destroy(public_id)
+#
+#             self.object.profile_picture = None
+#             self.object.save()
+#
+#         form.save()
+#
+#         messages.success(self.request, "Your profile has been updated successfully!")
+#         return super().form_valid(form)
+#
+#     def get_success_url(self):
+#         return reverse_lazy(
+#             'profile-details',
+#             kwargs={
+#                 'pk': self.request.user.pk,
+#             }
+#         )
+
+
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Profile
     form_class = ProfileEditForm
     template_name = 'accounts/profile-edit.html'
+    context_object_name = 'profile'
 
     def get_object(self, queryset=None):
         return get_object_or_404(Profile, user=self.request.user)
 
     def form_valid(self, form):
-
-        if self.request.POST.get('remove_profile_picture') and self.object.profile_picture:
-            public_id = self.object.profile_picture.public_id
-            cloudinary.uploader.destroy(public_id)
-
+        if 'remove_picture' in self.request.POST:
             self.object.profile_picture = None
             self.object.save()
 
-        form.save()
-
-        messages.success(self.request, "Your profile has been updated successfully!")
+        messages.success(self.request, 'Your profile has been updated successfully.')
         return super().form_valid(form)
 
     def get_success_url(self):
