@@ -1,5 +1,6 @@
 from django.db.models import Q
 from django.http import JsonResponse
+from django.views import View
 from django.views.generic import ListView, TemplateView
 from designSpace.projects.models import Project
 
@@ -40,21 +41,41 @@ class HomePageView(ListView):
         return super().render_to_response(context, **response_kwargs)
 
 
-
-def ajax_search_projects(request):
-    query = request.GET.get('q', '').strip()
-    projects = Project.objects.none()
-
-    if query:
-        projects = Project.objects.filter(
-            Q(title__icontains=query) |
-            Q(location__icontains=query) |
-            Q(creator__username__icontains=query)
-        )
-
-    data = list(projects.values('title', 'location', 'creator__username', 'id'))
-    return JsonResponse({'projects': data})
-
-
 class AboutView(TemplateView):
     template_name = 'common/about.html'
+
+
+class SearchView(View):
+    def get(self, request, *args, **kwargs):
+        query = request.GET.get('q', '')
+        if query:
+            projects = Project.objects.filter(
+                Q(title__icontains=query) |
+                Q(location__icontains=query) |
+                Q(creator__username__icontains=query)
+            ).distinct()
+        else:
+            projects = Project.objects.none()
+
+        data = {
+            'projects': [
+                {
+                    'title': project.title,
+                    'location': project.location,
+                    'area': project.area,
+                    'year': project.year,
+                    'cover_image': project.cover_image.url,
+                    'creator': {
+                        'username': project.creator.username,
+                        'display_name': project.creator.profile.full_name or project.creator.username,
+                        'profile_picture': project.creator.profile.profile_picture.url if project.creator.profile.profile_picture else None,
+                    },
+                    'id': project.id,
+                    'images': [
+                        image.image.url for image in project.images.all()
+                    ]
+                }
+                for project in projects
+            ]
+        }
+        return JsonResponse(data)

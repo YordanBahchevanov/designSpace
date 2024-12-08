@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let page = 2;
+    let page = 2; // Start loading from page 2 since page 1 is already fetched
     let isLoading = false;
 
-    // Function to fetch projects
+    // Fetch projects only when no search is active
     const fetchProjects = () => {
-        if (isLoading) return;
+        if (isLoading || document.querySelector('.search-container').classList.contains('active')) return;
 
         isLoading = true;
         document.getElementById('loading-spinner').style.display = 'block';
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     };
 
-    // Function to render projects
+    // Render new projects
     const renderProjects = (projects) => {
         const container = document.getElementById('project-container');
         projects.forEach(project => {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
-    // Function to handle scroll event
+    // Handle scroll event
     const handleScroll = () => {
         const scrollPosition = window.innerHeight + window.scrollY;
         const bottomPosition = document.body.offsetHeight - 100;

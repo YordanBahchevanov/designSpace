@@ -6,15 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/dropzone.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/searchBar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +23,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -244,7 +240,7 @@
       <workItem from="1732785678390" duration="75933000" />
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
-      <workItem from="1733510624077" duration="48619000" />
+      <workItem from="1733510624077" duration="57120000" />
     </task>
     <servers />
   </component>

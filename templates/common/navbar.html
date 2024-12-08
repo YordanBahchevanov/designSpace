@@ -1,14 +1,16 @@
 <nav>
-    <div class="search-container">
-        <a class="search-icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </a>
-        <input
-                type="text"
-                class="search-input"
-                placeholder=""
-        >
-    </div>
+    {% if request.path == '/' %}
+        <div class="search-container">
+            <a class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <input
+                    type="text"
+                    class="search-input"
+                    placeholder=""
+            >
+        </div>
+    {% endif %}
     <div class="main-nav">
         <a href="{% url 'home' %}">Home</a>
         {% if request.path == '/accounts/profile/'|add:user.pk|add:'/' %}
