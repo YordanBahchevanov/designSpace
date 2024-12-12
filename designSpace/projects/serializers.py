@@ -26,20 +26,7 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = [
-            'id',
-            'creator',
-            'title',
-            'project_type',
-            'year',
-            'area',
-            'location',
-            'cover_image',
-            'description',
-            'created_at',
-            'slug',
-            'images'
-        ]
+        fields = '__all__'
 
     def get_creator(self, obj):
         profile = obj.creator.profile

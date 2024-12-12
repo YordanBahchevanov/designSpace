@@ -14,25 +14,25 @@
             <a href="{% url 'profile-details' pk=request.user.pk %}">&times;</a>
         </div>
         <h2>Confirm Profile Deletion</h2>
-    
+
 
         <p>Are you sure you want to delete your profile?</p>
-    
+
         <form method="post" action="{% url 'profile-delete' pk=request.user.pk %}">
             {% csrf_token %}
             <button type="submit" class="btn-delete">Delete</button>
         </form>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const form = document.querySelector("form");
-            form.addEventListener("submit", function (e) {
-                const confirmed = confirm("Are you absolutely sure you want to delete your profile? This action is irreversible.");
-                if (!confirmed) {
-                    e.preventDefault(); // Stop the form submission if the user cancels
-                }
-            });
-        });
-    </script>
+{#    <script>#}
+{#        document.addEventListener("DOMContentLoaded", function () {#}
+{#            const form = document.querySelector("form");#}
+{#            form.addEventListener("submit", function (e) {#}
+{#                const confirmed = confirm("Are you absolutely sure you want to delete your profile? This action is irreversible.");#}
+{#                if (!confirmed) {#}
+{#                    e.preventDefault();#}
+{#                }#}
+{#            });#}
+{#        });#}
+{#    </script>#}
 </body>
 </html>

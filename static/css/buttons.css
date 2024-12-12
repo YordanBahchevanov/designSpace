@@ -18,6 +18,11 @@
     transition: background-color 0.3s ease-in-out;
 }
 
+.project-details-buttons {
+    padding-bottom: 2rem;
+    margin-bottom: 5rem;
+}
+
 .buttons div:hover {
     background-color: #0a6287;
 }

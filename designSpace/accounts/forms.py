@@ -1,3 +1,4 @@
+from cloudinary.forms import CloudinaryFileField
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
@@ -36,11 +37,11 @@ class LoginForm(forms.Form):
 
 
 class ProfileEditForm(forms.ModelForm):
+
     class Meta:
         model = Profile
         exclude = ('user',)
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'profile_picture': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }

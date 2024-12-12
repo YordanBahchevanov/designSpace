@@ -1,5 +1,9 @@
+import logging
+
+from cloudinary import uploader
 from cloudinary.api import delete_resources_by_prefix, delete_folder
 from cloudinary.models import CloudinaryField
+from django.contrib.auth import logout
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.db import models
@@ -43,6 +47,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
+logger = logging.getLogger('designSpace')
+
+
 class Profile(models.Model):
     user = models.OneToOneField(
         CustomUser,
@@ -69,6 +76,12 @@ class Profile(models.Model):
         null=True
     )
 
+    profile_picture_public_id = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
+
     @property
     def full_name(self):
         if self.first_name and self.last_name:
@@ -87,14 +100,17 @@ class Profile(models.Model):
         return self.full_name or "Anonymous"
 
     def delete(self, *args, **kwargs):
+        request = kwargs.pop('request', None)
+
+        if request and request.user == self.user:
+            logout(request)
+
         folder_path = f"users/{self.user.username}/"
         delete_resources_by_prefix(folder_path)
         delete_folder(folder_path)
 
         self.user.delete()
         super().delete(*args, **kwargs)
-
-
 
 
 

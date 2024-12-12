@@ -5,30 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0008_remove_profile_profile_picture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0009_profile_profile_picture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0010_alter_profile_profile_picture.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0011_profile_profile_picture_public_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0012_remove_profile_profile_picture_public_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0013_profile_profile_picture_public_id.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/design_space_db.uB_w4Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/design_space_db.uB_w4Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/common/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/projects/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/projects/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/about.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/project-details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/project-details.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/scripts/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/searchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/log-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/log-in.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accounts/profile-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accounts/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/create-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/upload-images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/project-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/project-details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +58,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -62,38 +72,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.designSpace.executor": "Debug",
-    "Python.models.executor": "Run",
-    "Python.settings.executor": "Run",
-    "Python.test.executor": "Debug",
-    "Python.utils.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "main",
-    "htmx.bundled.context.provider.enabled": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Programming/Design_Space_Web_Project/designSpace/designSpace/projects",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.designSpace.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;htmx.bundled.context.provider.enabled&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Design_Space_Web_Project/designSpace/designSpace/projects&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\projects" />
@@ -260,7 +270,8 @@
       <workItem from="1732785678390" duration="75933000" />
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
-      <workItem from="1733510624077" duration="84003000" />
+      <workItem from="1733510624077" duration="130077000" />
+      <workItem from="1734023727044" duration="7604000" />
     </task>
     <servers />
   </component>

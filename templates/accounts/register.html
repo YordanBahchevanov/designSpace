@@ -17,7 +17,7 @@
     
         <form method="post" class="form">
             {% csrf_token %}
-            <h2>{{ title }}</h2>
+            <h2>Welcome to DesignSpace!</h2>
             {% for field in form %}
                 <div class="form-group">
                     <label for="{{ field.id_for_label }}">{{ field.label }}</label>

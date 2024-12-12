@@ -2,21 +2,23 @@ from cloudinary.uploader import upload
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, DetailView
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 from .forms import ProjectCreateForm, ProjectImageFormSet
 from .models import Project, ProjectImage
+from .permissions import IsProjectOwner
 from .serializers import ProjectSerializer
 from ..accounts.models import Profile
 
 
-class ListProjectView(ListCreateAPIView):
-    projects = Project.objects.prefetch_related('images').select_related('creator')
+class ProjectViewSet(ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsProjectOwner]
 
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
@@ -58,7 +60,6 @@ class ProjectDetailsView(LoginRequiredMixin, DetailView):
     context_object_name = 'project'
 
     def get_object(self, queryset=None):
-        # Retrieve project by slug
         return get_object_or_404(Project, slug=self.kwargs['slug'])
 
     def get_context_data(self, **kwargs):
@@ -66,18 +67,10 @@ class ProjectDetailsView(LoginRequiredMixin, DetailView):
 
         project = self.get_object()
 
-        # Fetch profile based on the creator of the project
         profile_user = get_object_or_404(Profile, user=project.creator)
         context['profile'] = profile_user
 
-        # Determine if the current user is the project creator
         context['is_creator'] = self.request.user == project.creator
-
-        # Calculate the number of images (accounting for cover image and gallery)
-        num_images = project.images.count()
-
-        # Assume 6 is the max slot for images
-        context['empty_slots'] = max(6 - num_images, 0)
 
         return context
 

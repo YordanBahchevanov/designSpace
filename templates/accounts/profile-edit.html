@@ -1,9 +1,58 @@
- <h2>Edit Profile</h2>
+{% load static %}
 
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="form-body">
+    <div class="form-container">
     
-        {{ form.as_p }}
-  
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-  </form>
+        <div class="close-button">
+            <a href="{% url 'profile-details' pk=profile.user.pk %}">&times;</a>
+        </div>
+    
+        <form method="post" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
+            <h2>Edit Profile</h2>
+            {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="error-message">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            {% if profile.profile_picture %}
+                <div class="form-group">
+                    <label>
+                        Remove Picture
+                        <input type="checkbox" name="remove_picture" value="true">
+                    </label>
+                </div>
+            {% endif %}
+            
+            <button type="submit" class="btn-submit">Save Changes</button>
+        </form>
+        
+{#        <p>#}
+{#            {% if profile.profile_picture %}#}
+{#                Current Image Path: {{ profile.profile_picture.public_id }}#}
+{#            {% else %}#}
+{#                No profile picture available.#}
+{#            {% endif %}#}
+{#        </p>#}
+{#        <p>Folder Path: users/{{ request.user.username }}/profile-image/</p>#}
+    
+    </div>
+</body>
+</html>

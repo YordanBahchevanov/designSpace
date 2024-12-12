@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const searchContainer = document.querySelector('.search-container');
+
+    if (!searchContainer) return;
+
     const searchInput = document.querySelector('.search-input');
     const searchIcon = document.querySelector('.search-icon');
     const projectContainer = document.querySelector('#project-container');
