@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0014_remove_profile_first_name_remove_profile_last_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0015_profile_first_name_profile_last_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/accounts/migrations/0015_profile_first_name_profile_last_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0015_profile_first_name_profile_last_name.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/accounts/migrations/0016_alter_profile_first_name_alter_profile_last_name.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/picture_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/picture_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/picture_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/accounts/validators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/log-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/log-in.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/create-project.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,44 +53,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.designSpace.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.models.executor&quot;: &quot;Run&quot;,
-    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;htmx.bundled.context.provider.enabled&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Design_Space_Web_Project/designSpace/designSpace/projects&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.designSpace.executor": "Debug",
+    "Python.models.executor": "Run",
+    "Python.settings.executor": "Run",
+    "Python.test.executor": "Debug",
+    "Python.utils.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "main",
+    "htmx.bundled.context.provider.enabled": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Programming/Design_Space_Web_Project/designSpace/designSpace/accounts",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\accounts" />
+      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\projects" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\templatetags" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\templates\projects" />
-      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\templates\accounts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace" />
@@ -253,7 +253,7 @@
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
       <workItem from="1733510624077" duration="130077000" />
-      <workItem from="1734023727044" duration="26205000" />
+      <workItem from="1734023727044" duration="45882000" />
     </task>
     <servers />
   </component>

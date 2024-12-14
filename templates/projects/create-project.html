@@ -8,47 +8,65 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body class="form-body">
-<div class="form-container">
+<body class="create-form-body">
+<div class="form-container create-form-container">
+    <h2>Create Project</h2>
     <div class="close-button">
-        <a href="{% url 'home' %}">&times;</a>
+        <a href="{% url 'profile-details' pk=user_pk %}">&times;</a>
     </div>
 
-    <form method="post" enctype="multipart/form-data" class="form needs-validation" novalidate>
+    <form method="post" enctype="multipart/form-data" class="form" novalidate>
         {% csrf_token %}
 
-        <h2 class="h5">{{ title }}</h2>
+        <div class="create-form-content">
+            <div class="form-left">
 
-        {% for field in form %}
+                {% for field in form %}
+                    <div class="form-group mb-3">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="error-message">
+                                {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+<div class="form-right">
+    <h3>Upload Images</h3>
+    {{ image_formset.management_form }}
+
+    {# Global formset errors (non-field errors) #}
+    {% if image_formset.non_form_errors %}
+    <div class="error-message">
+        {% for error in image_formset.non_form_errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="card p-3 mb-4">
+        {% for image_form in image_formset %}
             <div class="form-group mb-3">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                {{ field }}
-                {% if field.errors %}
-                    <div class="error-message">
-                        {% for error in field.errors %}
+                <label for="{{ image_form.image.id_for_label }}">{{ image_form.image.label }}</label>
+                {{ image_form.image }}
+                {% if image_form.errors %}
+                <div class="error-message">
+                    {% for field, field_errors in image_form.errors.items %}
+                        {% for error in field_errors %}
                             <p>{{ error }}</p>
                         {% endfor %}
-                    </div>
+                    {% endfor %}
+                </div>
                 {% endif %}
             </div>
         {% endfor %}
-    
-        <h2 class="h5">Upload Images</h2>
-        {{ image_formset.management_form }}
-        <div class="card p-3 mb-4">
-            {% for image_form in image_formset %}
-                <div class="form-group mb-3">
-                    <label for="{{ image_form.image.id_for_label }}">{{ image_form.image.label }}</label>
-                    {{ image_form.image }}
-                    {% if image_form.image.errors %}
-                        <div class="error-message">
-                            {% for error in image_form.image.errors %}
-                                <p>{{ error }}</p>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
+    </div>
+</div>
         </div>
 
         <button type="submit" class="btn-submit btn btn-primary">Create Project</button>

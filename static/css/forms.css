@@ -3,7 +3,6 @@ body.form-body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
     background-color: #ECEFF5;
 }
 
@@ -15,7 +14,7 @@ body.form-body {
     position: relative;
     width: 100%;
     max-width: 400px;
-    background-color: #1E1E1E;
+    background-color: #ECEFF5;
     padding: 3rem 2rem 2rem 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -23,7 +22,7 @@ body.form-body {
 }
 
 .form-container p {
-    color: #ECEFF5;
+    color: #8994A3;
     margin-bottom: 2rem;
 }
 
@@ -31,6 +30,27 @@ h2 {
     padding: 1rem 0;
     font-size: 1.5rem;
     color: #13AFF0;
+}
+
+.form p {
+    color: #8994A3;
+    margin-top: 1rem;
+}
+
+.form p a {
+    color: #13AFF0;
+    text-underline-offset: 0.2rem;
+    transition:
+        text-decoration-color 0.3s ease-in-out,
+        text-underline-offset 0.3s ease-in-out;
+}
+
+.form p a:hover {
+    text-underline-offset: 0.4rem;
+    transition:
+    color 0.2s ease-in-out,
+    text-decoration-color 0.3s ease-in-out,
+    text-underline-offset 0.3s ease-in-out;
 }
 
 .form-group {
@@ -59,25 +79,20 @@ h2 {
     outline: none;
 }
 
-.form p {
-    color: #8994A3;
-    margin-top: 1rem;
-}
-
-.form p a {
+.form-group a {
+    word-break: break-all;
     color: #13AFF0;
-    text-underline-offset: 0.2rem;
-    transition:
-        text-decoration-color 0.3s ease-in-out,
-        text-underline-offset 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.form p a:hover {
-    text-underline-offset: 0.4rem;
-    transition:
-    color 0.2s ease-in-out,
-    text-decoration-color 0.3s ease-in-out,
-    text-underline-offset 0.3s ease-in-out;
+.form-group a:hover {
+    text-decoration: underline;
+    color: #0e86c1;
 }
 
 .error-message p {
@@ -86,15 +101,58 @@ h2 {
     margin: 0.25rem 0;
 }
 
-.delete-confirm-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+textarea {
+    resize: none;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #8994A3;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-.create-project-form {
-    display: flex;
+select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #8994A3;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
+select:focus {
+    border: 2px solid #13AFF0;
+    outline: none;
+}
+
+.checkbox-group {
+    margin: 1rem 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: #13AFF0;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    color: #13AFF0;
+}
+
+.create-form-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECEFF5;
+}
+
+.create-form-container {
+    margin: 3rem 0;
+}
+
+.form-right {
+    margin-bottom: 2rem;
 }
 

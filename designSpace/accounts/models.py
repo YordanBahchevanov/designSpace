@@ -1,9 +1,7 @@
 import logging
 
-from cloudinary import uploader
 from cloudinary.api import delete_resources_by_prefix, delete_folder
 from cloudinary.models import CloudinaryField
-from django.contrib.auth import logout
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.db import models
@@ -11,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 from designSpace.accounts.managers import AppUserManager
 from designSpace.accounts.utils import get_profile_image_folder
-from designSpace.accounts.validators import validate_name, validate_first_name, validate_last_name
+from designSpace.accounts.validators import validate_first_name, validate_last_name
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):

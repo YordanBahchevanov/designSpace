@@ -30,6 +30,9 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        context['user_pk'] = self.request.user.pk
+
         if self.request.POST:
             context["image_formset"] = ProjectImageFormSet(self.request.POST, self.request.FILES)
         else:

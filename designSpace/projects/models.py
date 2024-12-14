@@ -78,5 +78,6 @@ class ProjectImage(models.Model):
     image = CloudinaryField(
         'image', folder=get_gallery_image_folder)
 
+
     def __str__(self):
         return f"Image for {self.project.title}"
