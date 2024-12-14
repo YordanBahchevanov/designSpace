@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ECEFF5;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .error-container {
+            text-align: center;
+            color: #ECEFF5;
+        }
+        
+        h1 {
+            font-size: 6rem;
+            margin: 0;
+            animation: float 2s infinite;
+            color: #13AFF0;
+        }
+        
+        p {
+            color: #1E1E1E;
+            font-size: 1.5rem;
+            margin: 1rem 0 2rem 0 ;
+        }
+        
+        a {
+            text-decoration: none;
+            background-color: #fff;
+            color: #13AFF0;
+            padding: 0.75rem 1.2rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        a:hover {
+            background-color: #13AFF0;
+            color: #fff;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <p>Looks like you're lost. Let’s get you back!</p>
+        <a href="/">Return Home</a>
+{#        <img src="{% static 'images/404_Error-rafiki.svg' %}" alt="Lost in Space">#}
+    </div>
+</body>
+</html>

@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from designSpace.accounts.models import Profile
+from designSpace.mixins import ValidateFileTypeMixin
 
 UserModel = get_user_model()
 
@@ -36,12 +37,15 @@ class LoginForm(forms.Form):
     )
 
 
-class ProfileEditForm(forms.ModelForm):
-
+class ProfileEditForm(ValidateFileTypeMixin, forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ('user',)
+        exclude = ('user', 'profile_picture_public_id',)
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+    def clean_profile_picture(self):
+        profile_picture = self.cleaned_data.get('profile_picture')
+        return self.validate_file_type(profile_picture)

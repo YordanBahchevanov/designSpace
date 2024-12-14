@@ -11,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 
 from designSpace.accounts.managers import AppUserManager
 from designSpace.accounts.utils import get_profile_image_folder
+from designSpace.accounts.validators import validate_name, validate_first_name, validate_last_name
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -61,12 +62,14 @@ class Profile(models.Model):
         max_length=30,
         blank=True,
         null=True,
+        validators=[validate_first_name],
     )
 
     last_name = models.CharField(
         max_length=30,
         blank = True,
         null = True,
+        validators=[validate_last_name],
     )
 
     profile_picture = CloudinaryField(
@@ -100,10 +103,6 @@ class Profile(models.Model):
         return self.full_name or "Anonymous"
 
     def delete(self, *args, **kwargs):
-        request = kwargs.pop('request', None)
-
-        if request and request.user == self.user:
-            logout(request)
 
         folder_path = f"users/{self.user.username}/"
         delete_resources_by_prefix(folder_path)

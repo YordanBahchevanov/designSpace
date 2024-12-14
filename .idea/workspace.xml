@@ -5,37 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0008_remove_profile_profile_picture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0009_profile_profile_picture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0010_alter_profile_profile_picture.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0011_profile_profile_picture_public_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0012_remove_profile_profile_picture_public_id.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0013_profile_profile_picture_public_id.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/design_space_db.uB_w4Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/design_space_db.uB_w4Q/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0014_remove_profile_first_name_remove_profile_last_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0015_profile_first_name_profile_last_name.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/projects/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/projects/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/about.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/project-details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/project-details.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/searchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/picture_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/picture_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/picture_3.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/project-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/project-details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +253,7 @@
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
       <workItem from="1733510624077" duration="130077000" />
-      <workItem from="1734023727044" duration="7604000" />
+      <workItem from="1734023727044" duration="26205000" />
     </task>
     <servers />
   </component>

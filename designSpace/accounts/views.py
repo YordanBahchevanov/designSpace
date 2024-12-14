@@ -1,7 +1,7 @@
 from cloudinary.uploader import upload, destroy
 
 from django.contrib import messages
-from django.contrib.auth import get_user_model, login, authenticate, logout
+from django.contrib.auth import get_user_model, login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect, get_object_or_404
@@ -81,8 +81,6 @@ class ProfileDetailsView(LoginRequiredMixin, ListView):
 
         return context
 
-logger = logging.getLogger('designSpace')
-
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Profile
@@ -94,51 +92,39 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
         return get_object_or_404(Profile, user=self.request.user)
 
     def form_valid(self, form):
-        logger.debug("form_valid method called")
         old_profile_picture_public_id = None
-
         if self.object.profile_picture:
             old_profile_picture_public_id = self.object.profile_picture_public_id
-            logger.debug(f"Old profile picture public_id: {old_profile_picture_public_id}")
-
-        if 'remove_picture' in self.request.POST:
-            if old_profile_picture_public_id:
-                try:
-                    logger.debug(f"Attempting to delete old image: {old_profile_picture_public_id}")
-                    destroy(old_profile_picture_public_id)
-                    logger.debug(f"Deleted old image: {old_profile_picture_public_id}")
-                except Exception as e:
-                    logger.error(f"Error deleting image from Cloudinary: {e}")
-
-            self.object.profile_picture = None
-            self.object.profile_picture_public_id = None
-            self.object.save()
 
         new_profile_picture = form.cleaned_data.get('profile_picture')
 
         if new_profile_picture:
-            upload_response = upload(
-                new_profile_picture.file,
-                folder=get_profile_image_folder(self.request)
-            )
-            logger.debug(f"Attempting to delete old image: {old_profile_picture_public_id}")
+            if hasattr(new_profile_picture, 'read'):
+                upload_response = upload(
+                    new_profile_picture,
+                    folder=get_profile_image_folder(self.request)
+                )
 
-            if old_profile_picture_public_id:
-                destroy(old_profile_picture_public_id)
-                logger.debug(f"Deleted old image: {old_profile_picture_public_id}")
+                if old_profile_picture_public_id:
+                    try:
+                        destroy(old_profile_picture_public_id)
+                    except Exception as e:
+                        messages.error(self.request, f"Error deleting old image: {e}")
 
-            self.object.profile_picture = upload_response['secure_url']
-            self.object.profile_picture_public_id = upload_response['public_id']
-
+                self.object.profile_picture = upload_response['secure_url']
+                self.object.profile_picture_public_id = upload_response['public_id']
+            else:
+                messages.error(self.request, 'The uploaded file is not valid.')
 
         response = super().form_valid(form)
 
-        # Success message
         messages.success(self.request, 'Your profile has been updated successfully.')
+
         return response
 
     def get_success_url(self):
         return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
+
 
 
 class ProfileDeleteView(LoginRequiredMixin, DeleteView):
@@ -150,11 +136,5 @@ class ProfileDeleteView(LoginRequiredMixin, DeleteView):
         return get_object_or_404(Profile, user=self.request.user)
 
     def delete(self, request, *args, **kwargs):
-        logout(request)
-
-        profile = self.get_object()
-        profile.delete()
-
         messages.success(request, "Your profile has been deleted successfully.")
-
-        return redirect(self.success_url)
+        return super().delete(request, *args, **kwargs)
