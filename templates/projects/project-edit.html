@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Project</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="edit-form-body">
+<div class="form-container edit-form-container">
+    <h2>Edit Project</h2>
+    <div class="close-button">
+        <a href="{% url 'profile-details' pk=user_pk %}">&times;</a>
+    </div>
+
+    <form method="post" enctype="multipart/form-data" class="form" novalidate>
+        {% csrf_token %}
+
+        <div class="edit-form-content">
+            <div class="form-left">
+                {% for field in form %}
+                    <div class="form-group mb-3">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="error-message">
+                                {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form-right">
+                <h3>Update Images</h3>
+                {{ image_formset.management_form }}
+
+                {# Global formset errors (non-field errors) #}
+                {% if image_formset.non_form_errors %}
+                <div class="error-message">
+                    {% for error in image_formset.non_form_errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="card p-3 mb-4">
+                    {% for image_form in image_formset %}
+                        <div class="form-group mb-3">
+                            <label for="{{ image_form.image.id_for_label }}">{{ image_form.image.label }}</label>
+                            {{ image_form.image }}
+
+                            {# Display checkbox for deleting images #}
+                            <div class="delete-image-checkbox">
+                                <label for="{{ image_form.DELETE.id_for_label }}">Delete this image:</label>
+                                {{ image_form.DELETE }}
+                            </div>
+
+                            {# Display validation errors for the image form #}
+                            {% if image_form.errors %}
+                            <div class="error-message">
+                                {% for field, field_errors in image_form.errors.items %}
+                                    {% for error in field_errors %}
+                                        <p>{{ error }}</p>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit btn btn-primary">Update Project</button>
+    </form>
+</div>
+</body>
+</html>

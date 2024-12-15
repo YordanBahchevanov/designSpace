@@ -70,3 +70,7 @@ ProjectImageFormSet = modelformset_factory(
     fields=('image',),
     extra=5,
 )
+
+class ProjectEditForm(ProjectCreateForm):
+    """Edit form for updating a project."""
+    pass

@@ -127,12 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
         reloadDefaultProjects();
     }
 
-    document.addEventListener('click', function (event) {
-        if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
-            closeSearchBar();
-        }
-    });
-
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
             closeSearchBar();

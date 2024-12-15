@@ -15,7 +15,7 @@
     background-color: white;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: center;
     min-height: 18.75rem;
     overflow: hidden;
@@ -37,6 +37,7 @@
 
 .cover-image img {
     width: 100%;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 5px;
 }

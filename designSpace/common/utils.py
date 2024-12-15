@@ -17,6 +17,8 @@ def serialize_project(project):
         },
         'id': project.id,
         'slug': project.slug,
+        # 'like_url': reverse('like-project', kwargs={'slug': project.slug}),
+        # 'like_count': project.likes.count,
         'project_url': reverse('projects:project-details', args=[project.slug]),
         'images': [
             image.image.url for image in project.images.all()

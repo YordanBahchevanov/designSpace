@@ -1,4 +1,5 @@
 {% extends 'common/base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="project-details-container">
@@ -6,7 +7,7 @@
             <div class="project-info">
                 <h2>{{ project.title }}</h2>
                 <p>
-                    <strong>Published by:</strong> 
+                    <strong>Published by:</strong>
                     <a href="{% url 'profile-details' project.creator.id %}">
                         {{ project.creator.profile.display_name }}
                     </a>
@@ -16,16 +17,6 @@
                 <p><strong>Location:</strong> {{ project.location }}</p>
                 <p><strong>Description:</strong></p>
                 <p class="indented-description">{{ project.description }}</p>
-            </div>
-            <div class="edit-delete-buttons">
-                {% if is_creator %}
-                    <a class="edit-icon" href="#">
-                        <i class="fa-solid fa-edit"></i>
-                    </a>
-                    <a class="delete-icon" href="#">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                {% endif %}
             </div>
         </div>
 
@@ -45,18 +36,44 @@
             {% endif %}
         </div>
     </div>
-    <div class="buttons project-details-buttons">
-        <div class="save-project">
-            <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+
+    {% if is_creator %}
+        <div class="buttons edit-delete-buttons">
+            <div class="edit-button">
+                <a class="edit-icon" href="{% url 'projects:project-edit' slug=project.slug %}">
+                    <i class="fa-solid fa-edit"></i>
+                </a>
+            </div>
+            <div class="delete-button">
+                <a class="project-delete-icon" href="{% url 'projects:project-delete' slug=project.slug %}">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </div>
         </div>
-        <div class="share-button">
-            <a href="#"><i class="fa-solid fa-share"></i></a>
+    {% else %}
+        <div class="buttons project-details-buttons">
+            <div class="save-project">
+                <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+            </div>
+            <div class="share-button">
+                <a href="#"><i class="fa-solid fa-share"></i></a>
+            </div>
+            <div class="like-button">
+                <a href="javascript:void(0);" class="like-toggle" data-id="{{ project.id }}">
+                    {% if request.user in project.likes.all %}
+                        <i class="fa-solid fa-thumbs-up liked"></i>
+                    {% else %}
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    {% endif %}
+                </a>
+                <span class="like-count">{{ project.likes.count }} likes</span>
+            </div>
         </div>
-        <div class="like-button">
-            <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
-        </div>
-    </div>
-    <footer>  
-        <p>&copy; 2024 DesignSpace. All rights reserved.</p>  
+    {% endif %}
+    <footer>
+        <p>&copy; 2024 DesignSpace. All rights reserved.</p>
     </footer>
+    {% block extra_js %}
+        <script src="{% static 'scripts/like.js' %}"></script>
+    {% endblock %}
 {% endblock %}

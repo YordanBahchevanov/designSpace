@@ -2,103 +2,103 @@
 {% load static %}
 
 {% block content %}
-<div class="layout-container">
-    <main>
-        <div id="project-container" class="projects">
-            {% for project in projects %}
-                <div class="project">
-                    <div class="cover-image">
-                        <img src="{{ project.cover_image.url }}" alt="Cover Image">
-                    </div>
-                    <div class="project-text">
-                        <p>
-                            <span>Published by:</span> 
-                            <a href="{% url 'profile-details' project.creator.id %}">
-                                {{ project.creator.profile.display_name }}
-                            </a>
-                        </p>
-                        <p><span>Project:</span> {{ project.title }}</p>
-                        <p><span>Area:</span> {% if project.area %}{{ project.area }}{% else %}N/A{% endif %} m²</p>
-                        <p><span>Location:</span> {{ project.location }}</p>
-                        <p><span>Year:</span> {{ project.year }}</p>
-                    </div>
-                    <div class="project-gallery">
-                        {% with project.images.all|slice:":3" as displayed_images %}
-                            {% for image in displayed_images %}
-                            <div class="gallery-image {% if forloop.last and project.images.count > 3 %}more-images{% endif %}">
-                                <img src="{{ image.image.url }}" alt="Gallery Image">
-                                {% if forloop.last and project.images.count > 3 %}
-                                <span class="more-count">+{{ project.images.count|add:"-3" }}</span>
-                                {% endif %}
+    <div class="layout-container">
+        <main>
+            <div id="project-container" class="projects">
+                {% for project in projects %}
+                    <div class="project">
+                        <div class="cover-image">
+                            <img src="{{ project.cover_image.url }}" alt="Cover Image">
+                        </div>
+                        <div class="project-text">
+                            <p>
+                                <span>Published by:</span>
+                                <a href="{% url 'profile-details' project.creator.id %}">
+                                    {{ project.creator.profile.display_name }}
+                                </a>
+                            </p>
+                            <p><span>Project:</span> {{ project.title }}</p>
+                            <p><span>Area:</span> {% if project.area %}{{ project.area }}{% else %}N/A{% endif %} m²</p>
+                            <p><span>Location:</span> {{ project.location }}</p>
+                            <p><span>Year:</span> {{ project.year }}</p>
+                        </div>
+                        <div class="project-gallery">
+                            {% with project.images.all|slice:":3" as displayed_images %}
+                                {% for image in displayed_images %}
+                                    <div class="gallery-image {% if forloop.last and project.images.count > 3 %}more-images{% endif %}">
+                                        <img src="{{ image.image.url }}" alt="Gallery Image">
+                                        {% if forloop.last and project.images.count > 3 %}
+                                            <span class="more-count">+{{ project.images.count|add:"-3" }}</span>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <div class="buttons">
+                            <div class="save-project">
+                                <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
                             </div>
-                            {% endfor %}
-                        {% endwith %}
+                            <div class="share-button">
+                                <a href="#"><i class="fa-solid fa-share"></i></a>
+                            </div>
+                            <div class="like-button">
+                                <a href="javascript:void(0);" class="like-toggle" data-id="{{ project.id }}">
+                                    {% if project.user_likes and request.user.is_authenticated %}
+                                        <i class="fa-solid fa-thumbs-up liked"></i>
+                                    {% else %}
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    {% endif %}
+                                </a>
+                                <span class="like-count">{{ project.likes.count }} likes</span>
+                            </div>
+                            <a href="{% url 'projects:project-details' slug=project.slug %}" class="more-info">More info
+                                &raquo;</a>
+                        </div>
                     </div>
-                    <div class="buttons">
-                        <div class="save-project">
-                            <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                {% endfor %}
+            </div>
+        </main>
+        <aside>
+            <div class="articles">
+                {% for article in articles %}
+                    <div class="article">
+                        <div class="article-header">
+                            <h3>{{ article.title }}</h3>
                         </div>
-                        <div class="share-button">
-                            <a href="#"><i class="fa-solid fa-share"></i></a>
+                        <div class="article-content">
+                            <p>{{ article.content }}</p>
                         </div>
-                        <div class="like-button">
-                            <a href="#"><i class="fa-solid fa-thumbs-up"></i></a>
+                        <div class="article-author">
+                            <a href="{% url 'profile-details' article.author.id %}">
+                                {{ article.author.profile.display_name }}
+                            </a>
                         </div>
-                        <a href="{% url 'projects:project-details' slug=project.slug %}" class="more-info">More info &raquo;</a>
+                        <a href="#" class="more-info">More info &raquo;</a>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div id="loading-spinner" style="display: none;">
-            Loading more projects...
-        </div>
-    </main>
-    <aside>
-        <div class="jobs">
-            <div class="job">
-                <div class="job-header">
-                    <h3>Residential Architect</h3>
-                </div>
-                <div class="job-details">
-                    <p class="job-pricing"><strong>Pricing:</strong> $50/hour</p>
-                    <p class="job-description">
-                        Looking for an architect to design a modern family home. Experience with sustainable materials
-                        and 3D rendering tools (e.g., AutoCAD, SketchUp) is required.
-                    </p>
-                    <p class="job-date"><strong>Date Posted:</strong> November 18, 2024</p>
-                    <a href="#" class="more-info">More Info</a>
-                </div>
+                {% endfor %}
             </div>
-            <div class="job">
-                <div class="job-header">
-                    <h3>Interior Designer</h3>
-                </div>
-                <div class="job-details">
-                    <p class="job-pricing"><strong>Pricing:</strong> Milestone-based</p>
-                    <p class="job-description">
-                        Seeking a skilled interior designer to redesign a luxury apartment. Must provide mood boards,
-                        furniture suggestions, and layouts in tools like Revit or Photoshop.
-                    </p>
-                    <p class="job-date"><strong>Date Posted:</strong> November 19, 2024</p>
-                    <a href="#" class="more-info">More Info</a>
-                </div>
-            </div>
-            <div class="job">
-                <div class="job-header">
-                    <h3>Landscape Architect</h3>
-                </div>
-                <div class="job-details">
-                    <p class="job-pricing"><strong>Pricing:</strong> $25/hour</p>
-                    <p class="job-description">
-                        Hiring a landscape architect for a commercial project. Must create designs that integrate
-                        greenery and hardscape elements using tools like Rhino or Lumion.
-                    </p>
-                    <p class="job-date"><strong>Date Posted:</strong> November 20, 2024</p>
-                    <a href="#" class="more-info">More Info</a>
-                </div>
-            </div>
-        </div>
-    </aside>
-</div>
-<script src="{% static 'scripts/infiniteScroll.js' %}"></script>
+        </aside>
+    </div>
+
+    <div class="pagination-container">
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page=1">1</a></li>
+                    <li><a href="?page={{ page_obj.previous_page_number }}"><-</a></li>
+                {% endif %}
+
+                <li class="active"><span>{{ page_obj.number }}</span></li>
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">-></a></li>
+                    <li><a href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+    {% block extra_js %}
+        <script src="{% static 'scripts/searchBar.js' %}"></script>
+        <script src="{% static 'scripts/like.js' %}"></script>
+    {% endblock %}
 {% endblock %}

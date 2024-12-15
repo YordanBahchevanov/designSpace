@@ -5,18 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/designSpace/articles/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/common/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/common/migrations/0002_alter_like_to_project_alter_like_user_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/projects/migrations/0006_project_cover_image_public_id_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/designSpace/projects/migrations/0007_alter_projectimage_image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/design_space_db.uB_w4Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/05efbe31-d8a6-4fc7-a80c-947a8ee260e3/storage_v2/_src_/database/design_space_db.uB_w4Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/migrations/0015_profile_first_name_profile_last_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/migrations/0015_profile_first_name_profile_last_name.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/migrations/0016_alter_profile_first_name_alter_profile_last_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/validators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/articles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/articles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/common/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/common/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designSpace/projects/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_update.log" beforeDir="false" afterPath="$PROJECT_DIR$/profile_update.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/log-in.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/log-in.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/jobs.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/articles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/project-details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/project-details.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/projects.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/projects.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/infiniteScroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/searchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/searchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-details.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/accounts/profile-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/create-project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/projects/project-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/project-details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +52,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -70,7 +93,7 @@
     "git-widget-placeholder": "main",
     "htmx.bundled.context.provider.enabled": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Programming/Design_Space_Web_Project/designSpace/designSpace/accounts",
+    "last_opened_file_path": "D:/Programming/Design_Space_Web_Project/designSpace/designSpace/articles",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -87,11 +110,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\articles" />
+      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\templates\projects" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\accounts" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace" />
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\projects" />
-      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace\templatetags" />
-      <recent name="D:\Programming\Design_Space_Web_Project\designSpace\templates\projects" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Design_Space_Web_Project\designSpace\designSpace" />
@@ -253,7 +276,7 @@
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
       <workItem from="1733510624077" duration="130077000" />
-      <workItem from="1734023727044" duration="45882000" />
+      <workItem from="1734023727044" duration="93690000" />
     </task>
     <servers />
   </component>

@@ -18,9 +18,25 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.project-details-buttons {
+.project-details-buttons,
+.edit-delete-buttons {
     padding-bottom: 2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
+}
+
+.edit-delete-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.edit-delete-buttons .delete-button {
+    background-color: #8994A3;
+}
+
+.edit-delete-buttons .delete-button:hover {
+    background-color: #ff4d4d;
 }
 
 .buttons div:hover {
@@ -43,7 +59,8 @@
     color: #ffffff;
 }
 
-.buttons .save-project {
+.buttons .save-project,
+.buttons .like-button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +93,7 @@
     color: #1E1E1E;
 }
 
-.jobs .more-info {
+.articles .more-info {
     display: inline-block;
     margin-top: 10px;
     padding: 8px 12px;
@@ -89,7 +106,7 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
-.jobs .more-info:hover {
+.articles .more-info:hover {
     background-color: #13AFF0;
     color: white;
 }
@@ -176,4 +193,41 @@
 
 .close-button:hover {
     background-color: #ff4d4d;
+}
+
+.delete-icon {
+  position: absolute;
+  bottom: 1.5rem;
+  padding: 0.5rem;
+  background-color: #ECEFF5;
+  border-radius: 50%;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8994A3;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.delete-icon:hover {
+  background-color: #ff4d4d;
+}
+
+.delete-icon:hover .fa-trash {
+  color: #ECEFF5;
+}
+
+.project-delete-icon {
+  color: #8994A3;
+}
+
+/*.buttons div a i.liked {*/
+/*    color: #ed4040; !* Set the liked color *!*/
+/*}*/
+
+.like-toggle i.liked {
+    color: #ed4040;
 }

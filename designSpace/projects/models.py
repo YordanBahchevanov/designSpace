@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from cloudinary.api import delete_resources_by_prefix, delete_folder, resources
 from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
@@ -41,6 +42,12 @@ class Project(models.Model):
 
     cover_image = CloudinaryField('image', folder=get_cover_image_folder)
 
+    cover_image_public_id = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
+
     description = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -56,6 +63,13 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def total_likes(self):
+        return self.likes.count()
+
+    def user_likes(self, user):
+        """Check if the user has liked this project"""
+        return self.likes.filter(user=user).exists()
+
     def clean(self):
         super().clean()
 
@@ -67,6 +81,18 @@ class Project(models.Model):
         if self.year and (self.year < 1900 or self.year > current_year):
             raise ValidationError(f"Year must be between 1900 and {current_year}.")
 
+    def delete(self, *args, **kwargs):
+        folder_path = get_cover_image_folder(self)
+
+        try:
+            delete_resources_by_prefix(folder_path)
+
+            delete_folder(folder_path)
+        except Exception as e:
+            print(f"Error while deleting Cloudinary resources or folder: {e}")
+
+        super().delete(*args, **kwargs)
+
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(
@@ -76,8 +102,17 @@ class ProjectImage(models.Model):
     )
 
     image = CloudinaryField(
-        'image', folder=get_gallery_image_folder)
+        'image',
+        folder=get_gallery_image_folder,
+        blank=True,
+        null=True
+    )
 
+    image_public_id = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True
+    )
 
     def __str__(self):
         return f"Image for {self.project.title}"

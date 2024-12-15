@@ -10,20 +10,21 @@
 </head>
 <body>
 
-<header>
-    <div class="title">
-        <a href="{% url 'home' %}" class="logo">
-            <h1><span class="design">Design</span><span class="space">Space</span></h1>
-        </a>
-    </div>
-</header>
-
-{% include 'common/navbar.html' %}
-
-{% block content %}
-{% endblock %}
-
-<script src="{% static 'scripts/searchBar.js' %}"></script>
-
+    <header>
+        <div class="title">
+            <a href="{% url 'home' %}" class="logo">
+                <h1><span class="design">Design</span><span class="space">Space</span></h1>
+            </a>
+        </div>
+    </header>
+    
+    {% include 'common/navbar.html' %}
+    
+    {% block content %}
+    {% endblock %}
+    
+    <footer>
+        <p>&copy; 2024 DesignSpace. All rights reserved.</p>
+    </footer>
 </body>
 </html>
