@@ -5,12 +5,15 @@
 @import 'layout.css';
 @import 'profile-page.css';
 @import 'project-details.css';
+@import 'article-details.css';
 @import 'projects.css';
 @import 'articles.css';
 @import 'forms.css';
 @import 'buttons.css';
 @import 'about.css';
 @import 'footer.css';
+@import 'pagination.css';
+
 
 
 

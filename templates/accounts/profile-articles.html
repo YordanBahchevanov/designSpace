@@ -7,13 +7,12 @@
         
         {% include 'accounts/profile-info.html' %}
 
-        <div class="projects-container">
-            {% for project in projects %}
-                <div class="profile-project">
-                    <a href="{% url 'projects:project-details' slug=project.slug %}">
-                        <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
-                        <h4>{{ project.title }}</h4>
-                    </a>
+        <div class="articles-container">
+            {% for article in articles %}
+                <div class="profile-article">
+                    <h4>{{ article.title }}</h4>
+                    <p>{{ article.content|slice:":200" }}{% if article.content|length > 200 %}...{% endif %}</p>
+                    <a href="{% url 'articles:article-details' pk=article.pk %}" class="more-info">More info &raquo;</a>
                 </div>
             {% endfor %}
 
@@ -21,7 +20,7 @@
                 <div class="profile-empty">
                     {% if is_own_profile %}
                         {% if forloop.first %}
-                        <a href="{% url 'projects:create-project' %}" class="add-link">
+                        <a href="{% url 'articles:create-article' %}" class="add-link">
                             <i class="fa-solid fa-plus"></i>
                         </a>
                         {% endif %}

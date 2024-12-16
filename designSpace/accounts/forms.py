@@ -40,7 +40,9 @@ class LoginForm(forms.Form):
 class ProfileEditForm(ValidateFileTypeMixin, forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ('user', 'profile_picture_public_id',)
+        exclude = ('user',
+                   'profile_picture_public_id',
+        )
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),

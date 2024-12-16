@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('profile/<int:pk>/', include([
         path('', views.ProfileDetailsView.as_view(), name='profile-details'),
+        path('articles/', views.ProfileArticlesView.as_view(), name='profile-articles'),
         path('edit/', views.ProfileUpdateView.as_view(), name='profile-edit'),
         path('delete/', views.ProfileDeleteView.as_view(), name='profile-delete'),
     ]))

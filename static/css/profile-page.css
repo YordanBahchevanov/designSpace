@@ -89,7 +89,8 @@ body {
   transition: color 0.2s ease-in-out, text-decoration-color 0.3s ease-in-out, text-underline-offset 0.3s ease-in-out;
 }
 
-.projects-container {
+.projects-container,
+.articles-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 0.8rem;
@@ -98,7 +99,8 @@ body {
   min-height: 0;
 }
 
-.profile-project {
+.profile-project,
+.profile-article{
   position: relative;
   overflow: hidden;
   display: flex;
@@ -116,7 +118,8 @@ body {
   min-height: 26vh;
 }
 
-.profile-project:hover {
+.profile-project:hover,
+.profile-article:hover {
   background-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-0.3rem);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
@@ -151,7 +154,7 @@ body {
   opacity: 1;
 }
 
-.profile-project.empty {
+.profile-empty {
   background-color: rgb(255, 255, 255);
   opacity: 0.4;
   display: flex;
@@ -161,7 +164,7 @@ body {
   min-height: 26vh;
 }
 
-.add-project-link {
+.add-link {
   color: #bbc2cc;
   text-decoration: none;
   border-radius: 50%;
@@ -178,53 +181,14 @@ body {
   height: 3.5rem;
 }
 
-.add-project-link:hover {
+.add-link:hover {
   color: #13AFF0;
   text-decoration: none;
   border-color: #13AFF0;
 }
 
-.add-project-link i {
+.add-link i {
   font-size: 1.5rem;
-}
-
-.pagination-container {
-  display: flex;
-  justify-content: center;
-  padding: 1rem 0;
-  margin-bottom: 3rem;
-}
-
-.pagination {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.pagination li {
-  display: inline;
-}
-
-.pagination li a {
-  text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  color: #13AFF0;
-  border: 1px solid #13AFF0;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.pagination li a:hover {
-  background-color: #13AFF0;
-  color: #fff;
-}
-
-.pagination li.active span {
-  padding: 0.5rem 0.75rem;
-  color: #fff;
-  background-color: #13AFF0;
-  border-radius: 4px;
 }
 
 @media (max-width: 826px) {

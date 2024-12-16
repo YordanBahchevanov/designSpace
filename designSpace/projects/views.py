@@ -81,8 +81,6 @@ class ProjectDetailsView(LoginRequiredMixin, DetailView):
 
         return context
 
-logger = logging.getLogger('designSpace')
-
 class ProjectEditView(LoginRequiredMixin, UpdateView):
     model = Project
     form_class = ProjectEditForm
@@ -93,7 +91,6 @@ class ProjectEditView(LoginRequiredMixin, UpdateView):
         context = super().get_context_data(**kwargs)
         context["user_pk"] = self.request.user.pk
 
-        # Populate image_formset with the existing images for the project
         if self.request.POST:
             context["image_formset"] = ProjectImageFormSet(
                 self.request.POST, self.request.FILES, queryset=self.get_object().images.all()
@@ -106,7 +103,6 @@ class ProjectEditView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         project = form.save(commit=False)
 
-        # Handle cover image upload and deletion
         old_cover_image_public_id = project.cover_image_public_id
         new_cover_image = form.cleaned_data.get("cover_image")
 
@@ -127,49 +123,37 @@ class ProjectEditView(LoginRequiredMixin, UpdateView):
 
         project.save()
 
-        # Handle gallery images (upload new or delete)
         image_formset = ProjectImageFormSet(
             self.request.POST,
             self.request.FILES,
             queryset=project.images.all(),
         )
 
-        logger.debug(f"Image Formset is valid: {image_formset.is_valid()}")
-        logger.debug(f"Formset cleaned data: {image_formset.cleaned_data}")
-
         if image_formset.is_valid():
             for image_form in image_formset:
-                logger.debug(f"Processing image form: {image_form.cleaned_data}")
 
-                # Check if the DELETE checkbox is checked
                 if image_form.cleaned_data.get("DELETE"):
-                    logger.debug(f"Deleting image: {image_form.instance}")
-                    # Delete image from Cloudinary and remove from database
                     if image_form.instance.image_public_id:
                         try:
                             destroy(image_form.instance.image_public_id)
                         except Exception as e:
                             messages.error(self.request, f"Error deleting image: {e}")
-                    image_form.instance.delete()  # Delete image instance
+                    image_form.instance.delete()
 
-                # If a new image is uploaded, upload to Cloudinary and save
                 elif image_form.cleaned_data.get("image"):
-                    logger.debug(f"Uploading new image: {image_form.cleaned_data.get('image')}")
                     new_image = image_form.cleaned_data.get("image")
+
                     if hasattr(new_image, "read"):
                         upload_response = upload(new_image, folder=get_gallery_image_folder(project))
                         image_form.instance.image = upload_response["secure_url"]
                         image_form.instance.image_public_id = upload_response["public_id"]
 
-                    # Ensure the image is linked to the project
                     image_form.instance.project = project
                     image_form.save()
 
         else:
-            logger.debug(f"Formset errors: {image_formset.errors}")
             messages.error(self.request, "There were errors with the image formset.")
 
-        # Display a success message
         messages.success(self.request, "Your project has been updated successfully.")
         return redirect(self.get_success_url())
 

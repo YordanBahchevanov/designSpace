@@ -16,7 +16,7 @@ class Article(models.Model):
     )
 
     content = models.TextField(
-        max_length=500
+        max_length=5000
     )
 
     created_at = models.DateTimeField(

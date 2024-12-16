@@ -12,6 +12,7 @@ from designSpace.accounts.forms import CustomUserCreationForm, ProfileEditForm
 
 from designSpace.accounts.models import Profile
 from designSpace.accounts.utils import get_profile_image_folder
+from designSpace.articles.models import Article
 from designSpace.projects.models import Project
 
 import logging
@@ -138,3 +139,31 @@ class ProfileDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(request, "Your profile has been deleted successfully.")
         return super().delete(request, *args, **kwargs)
+
+
+class ProfileArticlesView(LoginRequiredMixin, ListView):
+    model = Article
+    template_name = 'accounts/profile-articles.html'
+    context_object_name = 'articles'
+    paginate_by = 6
+
+    def get_queryset(self):
+        profile_user = get_object_or_404(Profile, user__pk=self.kwargs['pk']).user
+        return Article.objects.filter(author=profile_user).order_by('-created_at')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        profile_user = get_object_or_404(Profile, user__pk=self.kwargs['pk']).user
+        is_writer = profile_user.groups.filter(name='Writer').exists()
+        context['is_writer'] = is_writer
+        print(f"Is Writer: {is_writer}")  # Debugging line
+        print(f"User: {profile_user.username}, Groups: {[group.name for group in profile_user.groups.all()]}")
+
+        context['profile'] = profile_user.profile
+        context['is_own_profile'] = self.request.user == profile_user
+
+        num_articles = context['articles'].count()
+        context['empty_slots'] = max(self.paginate_by - num_articles, 0)
+
+        return context

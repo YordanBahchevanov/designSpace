@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="article-details-container">
+        <div class="article-info-container">
+            <div class="article-info">
+                <h2>{{ article.title }}</h2>
+                <p>
+                    <strong>Published by:</strong>
+                    <a href="{% url 'profile-details' article.author.id %}">
+                        {{ article.author.profile.display_name }}
+                    </a>
+                </p>
+                <p class="indented-description">{{ article.content }}</p>
+            </div>
+        </div>
+    </div>
+
+    {% if is_author %}
+        <div class="buttons edit-delete-buttons">
+            <div class="edit-button">
+                <a class="edit-icon" href="{% url 'articles:article-edit' pk=article.pk %}">
+                    <i class="fa-solid fa-edit"></i>
+                </a>
+            </div>
+            <div class="delete-button">
+                <a class="project-delete-icon" href="{% url 'articles:article-delete' pk=article.pk %}">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2024 DesignSpace. All rights reserved.</p>
+    </footer>
+{% endblock %}

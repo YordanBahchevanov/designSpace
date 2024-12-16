@@ -15,7 +15,7 @@
             <a href="{% url 'home' %}">&times;</a>
         </div>
     
-        <form method="post" class="form">
+        <form method="post" class="form" id="signup-form">
             {% csrf_token %}
             <h2>Welcome to DesignSpace!</h2>
             {% for field in form %}
@@ -31,10 +31,19 @@
                     {% endif %}
                 </div>
             {% endfor %}
-            <button type="submit" class="btn-submit">Sign up</button>
+            <button type="submit" class="btn-submit" id="submit-btn">Sign up</button>
             <p>Already have an account? <a href="{% url 'log-in' %}">Log in</a></p>
         </form>
     
     </div>
+    <script>
+        const form = document.getElementById('signup-form');
+        const submitButton = document.getElementById('submit-btn');
+        
+        form.addEventListener('submit', function() {
+            submitButton.disabled = true;
+            submitButton.innerText = 'Signing...';
+        });
+    </script>
 </body>
 </html>

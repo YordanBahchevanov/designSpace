@@ -1,0 +1,49 @@
+<div class="profile-container">
+    <div class="profile-circle-container">
+        <div class="profile-circle">
+            {% if is_own_profile %}
+                {% if profile.profile_picture %}
+                    <a href="{% url 'profile-edit' pk=profile.user.pk %}">
+                        <img src="{{ profile.profile_picture.url }}" alt="{{ profile.display_name }}"
+                             class="profile-img">
+                    </a>
+                {% else %}
+                    <a href="{% url 'profile-edit' pk=profile.user.pk %}">
+                        {{ profile.first_name|default:"Anonymous"|slice:":1"|upper }}
+                    </a>
+                {% endif %}
+            {% else %}
+                {% if profile.profile_picture %}
+                    <a href="#">
+                        <img src="{{ profile.profile_picture.url }}" alt="{{ profile.display_name }}"
+                             class="profile-img">
+                    </a>
+                {% else %}
+                    <a href="#">
+                        {{ profile.first_name|default:"Anonymous"|slice:":1"|upper }}
+                    </a>
+                {% endif %}
+            {% endif %}
+        </div>
+        <p><b>{{ profile.display_name }}</b></p>
+        <p><b>{{ profile.user.email }}</b></p>
+    </div>
+
+    <div class="profile-links-container">
+        {% if is_own_profile %}
+            {% if request.resolver_match.view_name == 'profile-articles' %}
+                <a href="{% url 'profile-details' pk=profile.user.pk %}" class="profile-link">Projects</a>
+                <a href="{% url 'articles:create-article' %}" class="profile-link">Create an Article</a>
+            {% else %}
+                <a href="{% url 'projects:create-project' %}" class="profile-link">Create a Project</a>
+                <a href="{% url 'profile-articles' pk=profile.user.pk %}" class="profile-link">My Articles</a>
+            {% endif %}
+            <a href="#" class="profile-link">My Folders</a>
+            <a class="delete-icon" href="{% url 'profile-delete' pk=profile.user.pk %}">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        {% else %}
+            <a href="#" class="profile-link">Articles</a>
+        {% endif %}
+    </div>
+</div>
