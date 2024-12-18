@@ -28,11 +28,14 @@ section {
 
 section h2 {
     padding: 1rem 0;
+    font-size: 1.8rem;
 }
 
 section h3 {
     padding-bottom: 0.5rem;
     padding-top: 0.8rem;
+    font-size: 1.4rem;
+    color: #8994A3;
 }
 
 section p {

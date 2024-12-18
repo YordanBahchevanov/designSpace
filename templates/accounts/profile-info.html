@@ -39,6 +39,7 @@
                 <a href="{% url 'profile-articles' pk=profile.user.pk %}" class="profile-link">My Articles</a>
             {% endif %}
             <a href="#" class="profile-link">My Folders</a>
+            <a href="{% url 'create-folder' %}" class="profile-link">Create a Folder</a>
             <a class="delete-icon" href="{% url 'profile-delete' pk=profile.user.pk %}">
                 <i class="fa-solid fa-trash"></i>
             </a>

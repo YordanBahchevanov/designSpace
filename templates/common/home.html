@@ -36,7 +36,7 @@
                         </div>
                         <div class="buttons">
                             <div class="save-project">
-                                <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                                <a href="{% url 'add-project-to-folder' project.id %}"><i class="fa-regular fa-folder"></i>Save project</a>
                             </div>
                             <div class="share-button">
                                 <a href="#"><i class="fa-solid fa-share"></i></a>
@@ -75,7 +75,8 @@
                                 <span>Author: </span>{{ article.author.profile.display_name }}
                             </a>
                         </div>
-                         <a href="{% url 'articles:article-details' pk=article.pk %}" class="more-info">More info &raquo;</a>
+                        <a href="{% url 'articles:article-details' pk=article.pk %}" class="more-info">More info
+                            &raquo;</a>
                     </div>
                 {% endfor %}
             </div>
@@ -99,6 +100,9 @@
             </ul>
         {% endif %}
     </div>
+
+    {% include 'folders/add-project-to-folder.html' %}
+
     {% block extra_js %}
         <script src="{% static 'scripts/searchBar.js' %}"></script>
         <script src="{% static 'scripts/like.js' %}"></script>

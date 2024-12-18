@@ -23,7 +23,7 @@
         <a class="button logout" href="{% url 'log-out' %}"
            onclick="event.preventDefault(); document.getElementById('log-out-form').submit()">Log out</a>
         
-        {% if request.user.pk != profile.user.pk %}
+        {% if "accounts" not in request.path %}
             <div class="profile-circle">
                 {% if user.profile.profile_picture %}
                     <a href="{% url 'profile-details' pk=request.user.pk %}">

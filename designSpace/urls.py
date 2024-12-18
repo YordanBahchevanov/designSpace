@@ -15,6 +15,7 @@ urlpatterns = [
     path('accounts/', include('designSpace.accounts.urls')),
     path('projects/', include('designSpace.projects.urls')),
     path('articles/', include('designSpace.articles.urls')),
+    path('folders/', include('designSpace.folders.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # if settings.DEBUG:

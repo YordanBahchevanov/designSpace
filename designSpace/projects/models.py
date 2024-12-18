@@ -21,7 +21,7 @@ class Project(models.Model):
     folders = models.ManyToManyField(
         to='folders.Folder',
         blank=True,
-        related_name='projects'
+        related_name='projects_in'
     )
 
     title = models.CharField(
