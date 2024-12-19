@@ -70,8 +70,48 @@ A dedicated space to:
 
 ## Getting Started
 
-### Clone the repository:
+### Step 1: Clone the Repository
+Clone the project repository and navigate into the directory:
 
 ```bash
 git clone https://github.com/YordanBahchevanov/designSpace.git
 cd designSpace
+
+### Step 2: Clone the Repository
+Create a .env file in the project root directory using the .env.template file for refference:
+
+### Step 3: Install PostgreSQL or Set Up Docker
+If PostgreSQL is not installed locally, you can use Docker to set up PostgreSQL. Run the following command:
+
+```bash
+docker run --name designspace-db -e POSTGRES_USER=your_database_user \
+  -e POSTGRES_PASSWORD=your_database_password -e POSTGRES_DB=your_database_name \
+  -p 5432:5432 -d postgres
+
+Alternatively, install PostgreSQL using your system's package manager or installer.
+
+### Step 4: Install Dependencies
+Install the required Python packages using pip:
+
+```bash
+pip install -r requirements.txt
+
+### Step 5: Apply Database Migrations
+Run the database migrations to set up the initial schema:
+
+```bash
+python manage.py migrate
+
+### Step 6: Run the Development Server
+Start the development server to test the application:
+
+```bash
+python manage.py runserver
+
+
+
+
+
+
+
+
