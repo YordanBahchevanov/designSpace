@@ -127,6 +127,16 @@ body {
     min-height: 26vh;
 }
 
+.profile-article {
+    justify-content: start;
+    padding: 1rem;
+}
+
+.profile-article p {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
 .profile-folder {
     position: relative;
     overflow: hidden;

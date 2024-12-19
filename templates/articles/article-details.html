@@ -8,9 +8,13 @@
                 <h2>{{ article.title }}</h2>
                 <p>
                     <strong>Published by:</strong>
-                    <a href="{% url 'profile-details' article.author.id %}">
+                    <a href="{% url 'profile-details' article.author.id %}" style="color: #13AFF0;">
                         {{ article.author.profile.display_name }}
                     </a>
+                </p>
+                <p>
+                    <strong>Published on:</strong>
+                    <span style="color: #13AFF0;">{{ article.created_at|date:"d.m.Y" }}</span>
                 </p>
                 <p class="indented-description">{{ article.content }}</p>
             </div>

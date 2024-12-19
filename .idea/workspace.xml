@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/like.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/article-details.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/article-details.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/articles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/articles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/profile-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-articles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-articles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/article-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/article-details.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +248,7 @@
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
       <workItem from="1733510624077" duration="130077000" />
-      <workItem from="1734023727044" duration="156365000" />
+      <workItem from="1734023727044" duration="157969000" />
     </task>
     <servers />
   </component>

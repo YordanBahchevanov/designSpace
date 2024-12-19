@@ -11,7 +11,7 @@
             {% for article in articles %}
                 <div class="profile-article">
                     <h4>{{ article.title }}</h4>
-                    <p>{{ article.content|slice:":200" }}{% if article.content|length > 200 %}...{% endif %}</p>
+                    <p>{{ article.content|slice:":90" }}{% if article.content|length > 90 %}...{% endif %}</p>
                     <a href="{% url 'articles:article-details' pk=article.pk %}" class="more-info">More info &raquo;</a>
                 </div>
             {% endfor %}

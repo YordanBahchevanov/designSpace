@@ -93,7 +93,8 @@
     color: #1E1E1E;
 }
 
-.articles .more-info {
+.articles .more-info,
+.profile-article .more-info{
     display: inline-block;
     margin-top: 10px;
     padding: 8px 12px;
@@ -106,9 +107,16 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
-.articles .more-info:hover {
+.articles .more-info:hover,
+.profile-article .more-info:hover {
     background-color: #13AFF0;
     color: white;
+}
+
+.profile-article .more-info {
+    position: absolute;
+    bottom: 1rem;
+
 }
 
 .profile-circle {
