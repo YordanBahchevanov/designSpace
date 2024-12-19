@@ -90,19 +90,23 @@ docker run --name designspace-db -e POSTGRES_USER=your_database_user \
 ```
 Alternatively, install PostgreSQL using your system's package manager or installer.
 
-### Step 4: Install Dependencies
+### Step 4: Create the Database
+Before running the application, you need to create a PostgreSQL database using the credentials specified in the .env file. 
+You can create the database using pgAdmin or DataGrip:
+
+### Step 5: Install Dependencies
 Install the required Python packages using pip:
 
 ```bash
 pip install -r requirements.txt
 ```
-### Step 5: Apply Database Migrations
+### Step 6: Apply Database Migrations
 Run the database migrations to set up the initial schema:
 
 ```bash
 python manage.py migrate
 ```
-### Step 6: Run the Development Server
+### Step 7: Run the Development Server
 Start the development server to test the application:
 
 ```bash
