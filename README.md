@@ -66,6 +66,8 @@ A dedicated space to:
 - **Advanced Portfolio Features**:  
   Add customizable templates for portfolio displays to better reflect your creative identity.
 
+- **Adding Share Functionality**: 
+
 ---
 
 ## Getting Started
