@@ -5,27 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd802c4-451e-43e2-85be-9b0b66875119" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/designSpace/folders/migrations/0003_alter_folder_title.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/articles/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designSpace/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/folders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/folders/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/folders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/folders/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/folders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/folders/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designSpace/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/designSpace/projects/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/forms.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/scripts/like.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/like.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-folders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-folders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/profile-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/profile-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/folders/add-project-to-folder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/folders/add-project-to-folder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/folders/folder-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/folders/folder-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/create-project.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/create-project.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/project-details.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/project-details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/projects/project-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/projects/project-edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +244,7 @@
       <workItem from="1732981915989" duration="28015000" />
       <workItem from="1733332092338" duration="11060000" />
       <workItem from="1733510624077" duration="130077000" />
-      <workItem from="1734023727044" duration="155313000" />
+      <workItem from="1734023727044" duration="156365000" />
     </task>
     <servers />
   </component>

@@ -116,12 +116,9 @@ def like_project(request, project_id):
         else:
             liked = True
 
-        next_url = request.GET.get('next', '/')
-
         return JsonResponse({
             "liked": liked,
             "like_count": project.likes.count(),
-            "redirect_url": next_url,
         })
     else:
         return JsonResponse({"error": "Invalid request method"}, status=400)
