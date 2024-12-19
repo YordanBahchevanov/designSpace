@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect, get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -37,7 +37,7 @@ class ArticleCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def handle_no_permission(self):
         messages.error(self.request, "You do not have permission to create articles.")
-        return redirect('home')
+        return redirect(reverse('profile-details', args=[self.request.user.id]))
 
     def get_login_url(self):
         return f"{reverse_lazy('log-in')}?next={self.request.path}"

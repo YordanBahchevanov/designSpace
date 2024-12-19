@@ -1,0 +1,57 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block content %}
+<div class="profile-page-container">
+
+    {% include 'accounts/profile-info.html' %}
+
+    <div class="folders-container">
+        {% for folder in folders %}
+            <div class="profile-folder">
+                <a href="{% url 'folder-details' folder.pk %}">
+                    <div class="folder-images">
+                        {% for project in folder.projects.all|slice:":4" %}
+                            {% if project.cover_image %}
+                                <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <h4>{{ folder.title }}</h4>
+                </a>
+            </div>
+        {% endfor %}
+
+        {% for _ in empty_slots|range_filter %}
+            <div class="profile-empty">
+                {% if is_own_profile %}
+                    {% if forloop.first %}
+                        <a href="{% url 'create-folder' %}" class="add-link">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="pagination-container">
+    {% if is_paginated %}
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1">1</a></li>
+                <li><a href="?page={{ page_obj.previous_page_number }}"><-</a></li>
+            {% endif %}
+
+            <li class="active"><span>{{ page_obj.number }}</span></li>
+
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}">-></a></li>
+                <li><a href="?page={{ paginator.num_pages }}">{{ paginator.num_pages }}</a></li>
+            {% endif %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

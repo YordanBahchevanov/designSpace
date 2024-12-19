@@ -6,16 +6,14 @@
     <h2>Add Project to Folder</h2>
     <p>Project: {{ project.title }}</p>
 
-    <form method="post">
+    <form method="post" class="form">
       {% csrf_token %}
-      
-      <!-- Dropdown to select an existing folder -->
+        
       <div>
         <label for="id_folder">Select an existing folder:</label>
         {{ form.folder }}
       </div>
-
-      <!-- Input field to create a new folder -->
+        
       <div>
         <label for="id_new_folder_title">Or create a new folder:</label>
         {{ form.new_folder_title }}

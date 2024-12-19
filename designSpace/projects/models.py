@@ -18,12 +18,6 @@ class Project(models.Model):
         related_name="projects"
     )
 
-    folders = models.ManyToManyField(
-        to='folders.Folder',
-        blank=True,
-        related_name='projects_in'
-    )
-
     title = models.CharField(
         max_length=100,
     )

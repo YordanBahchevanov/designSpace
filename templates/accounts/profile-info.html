@@ -34,12 +34,21 @@
             {% if request.resolver_match.view_name == 'profile-articles' %}
                 <a href="{% url 'profile-details' pk=profile.user.pk %}" class="profile-link">Projects</a>
                 <a href="{% url 'articles:create-article' %}" class="profile-link">Create an Article</a>
+                <a href="{% url 'profile-folders' pk=profile.user.pk %}" class="profile-link">My Folders</a>
+            {% elif request.resolver_match.view_name == 'profile-folders' %}
+                <a href="{% url 'profile-details' pk=profile.user.pk %}" class="profile-link">Projects</a>
+                <a href="{% url 'profile-articles' pk=profile.user.pk %}" class="profile-link">My Articles</a>
+                <a href="{% url 'create-folder' %}" class="profile-link">Create a Folder</a>
             {% else %}
                 <a href="{% url 'projects:create-project' %}" class="profile-link">Create a Project</a>
                 <a href="{% url 'profile-articles' pk=profile.user.pk %}" class="profile-link">My Articles</a>
+                <a href="{% url 'profile-folders' pk=profile.user.pk %}" class="profile-link">My Folders</a>
             {% endif %}
-            <a href="#" class="profile-link">My Folders</a>
-            <a href="{% url 'create-folder' %}" class="profile-link">Create a Folder</a>
+            
+            {% if request.resolver_match.view_name == 'folder-details' %}
+                <p><b>{{ folder.title }}</b></p>
+            {% endif %}
+
             <a class="delete-icon" href="{% url 'profile-delete' pk=profile.user.pk %}">
                 <i class="fa-solid fa-trash"></i>
             </a>

@@ -10,23 +10,22 @@
         <div class="projects-container">
             {% for project in projects %}
                 <div class="profile-project">
+                    {% if is_own_profile %}
+                        <a href="{% url 'remove-project-from-folder' pk=folder.pk project_id=project.id %}"
+                           class="remove-project-button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
+                    {% endif %}
                     <a href="{% url 'projects:project-details' slug=project.slug %}">
                         <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">
                         <h4>{{ project.title }}</h4>
+
                     </a>
                 </div>
             {% endfor %}
 
             {% for _ in empty_slots|range_filter %}
-                <div class="profile-empty">
-                    {% if is_own_profile %}
-                        {% if forloop.first %}
-                            <a href="{% url 'projects:create-project' %}" class="add-link">
-                                <i class="fa-solid fa-plus"></i>
-                            </a>
-                        {% endif %}
-                    {% endif %}
-                </div>
+                <div class="profile-empty"></div>
             {% endfor %}
         </div>
     </div>

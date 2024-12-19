@@ -226,10 +226,10 @@
   color: #8994A3;
 }
 
-/*.buttons div a i.liked {*/
-/*    color: #ed4040; !* Set the liked color *!*/
-/*}*/
-
 .like-toggle i.liked {
-    color: #ed4040;
+    color: #0a6287;
+}
+
+.like-count span {
+    color: #0a6287;
 }

@@ -34,25 +34,27 @@
                                 {% endfor %}
                             {% endwith %}
                         </div>
+                        
                         <div class="buttons">
-                            <div class="save-project">
-                                <a href="{% url 'add-project-to-folder' project.id %}"><i class="fa-regular fa-folder"></i>Save project</a>
-                            </div>
-                            <div class="share-button">
-                                <a href="#"><i class="fa-solid fa-share"></i></a>
-                            </div>
-                            <div class="like-button">
-                                <a href="javascript:void(0);" class="like-toggle" data-id="{{ project.id }}">
-                                    {% if project.user_likes and request.user.is_authenticated %}
-                                        <i class="fa-solid fa-thumbs-up liked"></i>
-                                    {% else %}
-                                        <i class="fa-solid fa-thumbs-up"></i>
-                                    {% endif %}
-                                </a>
-                                <span class="like-count">{{ project.likes.count }} likes</span>
-                            </div>
-                            <a href="{% url 'projects:project-details' slug=project.slug %}" class="more-info">More info
-                                &raquo;</a>
+{#                            {% if user.is_authenticated %}#}
+                                <div class="save-project">
+                                    <a href="{% url 'add-project-to-folder' project.id %}"><i class="fa-regular fa-folder"></i>Save project</a>
+                                </div>
+                                <div class="share-button">
+                                    <a href="#"><i class="fa-solid fa-share"></i></a>
+                                </div>
+                                <div class="like-button">
+                                    <a href="javascript:void(0);" class="like-toggle" data-id="{{ project.id }}">
+                                        {% if project.user_likes and request.user.is_authenticated %}
+                                            <i class="fa-solid fa-thumbs-up liked"></i>
+                                        {% else %}
+                                            <i class="fa-solid fa-thumbs-up"></i>
+                                        {% endif %}
+                                    </a>
+                                    <span class="like-count">{{ project.likes.count }} likes</span>
+                                </div>
+{#                            {% endif %}#}
+                            <a href="{% url 'projects:project-details' slug=project.slug %}" class="more-info">More info &raquo;</a>
                         </div>
                     </div>
                 {% endfor %}
@@ -100,8 +102,6 @@
             </ul>
         {% endif %}
     </div>
-
-    {% include 'folders/add-project-to-folder.html' %}
 
     {% block extra_js %}
         <script src="{% static 'scripts/searchBar.js' %}"></script>
