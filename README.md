@@ -77,8 +77,8 @@ Clone the project repository and navigate into the directory:
 git clone https://github.com/YordanBahchevanov/designSpace.git
 cd designSpace
 ```
-### Step 2: Clone the Repository
-Create a .env file in the project root directory using the .env.template file for refference:
+### Step 2: Set Up the Environment File
+Create a .env file in the project's root directory. Use the .env.template file as a reference for the required variables.
 
 ### Step 3: Install PostgreSQL or Set Up Docker
 If PostgreSQL is not installed locally, you can use Docker to set up PostgreSQL. Run the following command:
