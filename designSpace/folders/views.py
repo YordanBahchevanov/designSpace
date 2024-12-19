@@ -1,7 +1,9 @@
+from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic import ListView, DeleteView
+from django.views.generic.edit import CreateView, FormView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import AddProjectToFolderForm
@@ -19,7 +21,7 @@ class FolderCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('profile-details', kwargs={'pk': self.request.user.pk})
+        return reverse_lazy('profile-folders', kwargs={'pk': self.request.user.pk})
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,7 +33,6 @@ class FolderCreateView(LoginRequiredMixin, CreateView):
 class AddProjectToFolderView(LoginRequiredMixin, FormView):
     template_name = 'folders/add-project-to-folder.html'
     form_class = AddProjectToFolderForm
-    success_url = reverse_lazy('home')
     login_url = reverse_lazy('log-in')
 
     def get_form_kwargs(self):
@@ -46,11 +47,14 @@ class AddProjectToFolderView(LoginRequiredMixin, FormView):
         new_folder_title = form.cleaned_data.get('new_folder_title')
 
         if new_folder_title:
-            folder = Folder.objects.create(title=new_folder_title, user=self.request.user)
+            folder = Folder.objects.create(
+                title=new_folder_title,
+                user=self.request.user
+            )
 
         folder.projects.add(project)
 
-        return redirect(reverse_lazy('projects:project-details', args=[project.slug]))
+        return redirect(reverse_lazy('folder-details', kwargs={'pk': folder.pk}))
 
     def form_invalid(self, form):
         return self.render_to_response({'form': form})
@@ -83,6 +87,29 @@ class FolderDetailsView(LoginRequiredMixin, ListView):
         return context
 
 
+class FolderEditView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+    model = Folder
+    fields = ['title']
+    template_name = 'folders/folder-edit.html'
+    success_message = "Folder updated successfully."
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'profile-folders',
+            kwargs={
+                'pk': self.request.user.pk,
+            }
+        )
+
+    def dispatch(self, request, *args, **kwargs):
+        folder = self.get_object()
+
+        if folder.user != request.user:
+            return HttpResponseForbidden("You do not have permission to edit this folder.")
+
+        return super().dispatch(request, *args, **kwargs)
+
+
 def remove_project_from_folder(request, pk, project_id):
 
     folder = get_object_or_404(Folder, id=pk, user=request.user)
@@ -92,3 +119,25 @@ def remove_project_from_folder(request, pk, project_id):
         folder.projects.remove(project)
 
     return redirect('folder-details', pk=folder.id)
+
+
+class FolderDeleteView(SuccessMessageMixin, DeleteView):
+    model = Folder
+    template_name = 'folders/folder-delete.html'
+    success_message = "Folder deleted successfully."
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'profile-folders',
+            kwargs={
+                'pk': self.request.user.pk,
+            }
+        )
+
+    def dispatch(self, request, *args, **kwargs):
+        folder = self.get_object()
+
+        if folder.user != request.user:
+            return HttpResponseForbidden("You do not have permission to delete this folder.")
+
+        return super().dispatch(request, *args, **kwargs)

@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
-from django.core.paginator import Paginator
 from django.db.models import Q, Prefetch
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -80,11 +79,11 @@ class SearchView(View):
 
                 search_rank=SearchRank(
                     SearchVector('title',
-                                 'creator__username',
-                                 'creator__profile__first_name',
-                                 'creator__profile__last_name',
-                                 'location',
-                                 ),
+                        'creator__username',
+                        'creator__profile__first_name',
+                        'creator__profile__last_name',
+                        'location',
+                        ),
                     search_query
                 )
             ).filter(
@@ -117,29 +116,12 @@ def like_project(request, project_id):
         else:
             liked = True
 
+        next_url = request.GET.get('next', '/')
+
         return JsonResponse({
             "liked": liked,
             "like_count": project.likes.count(),
+            "redirect_url": next_url,
         })
     else:
         return JsonResponse({"error": "Invalid request method"}, status=400)
-
-
-
-# @login_required
-# def like_project(request, project_id: int):
-#     project = get_object_or_404(Project, id=project_id)
-#
-#     liked_object = Like.objects.filter(to_project=project, user=request.user).first()
-#
-#     if liked_object:
-#         liked_object.delete()
-#         liked = False
-#     else:
-#         Like.objects.create(to_project=project, user=request.user)
-#         liked = True
-#
-#     return JsonResponse({
-#         'liked': liked,
-#         'like_count': project.likes.count(),
-#     })

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-  <div class="add-project-to-folder">
+  <div class="form-group add-project-to-folder">
     <h2>Add Project to Folder</h2>
     <p>Project: {{ project.title }}</p>
 
@@ -19,7 +19,7 @@
         {{ form.new_folder_title }}
       </div>
 
-      <button type="submit">Add to Folder</button>
+      <button type="submit" class="btn-submit btn btn-primary">Add to Folder</button>
     </form>
   </div>
 {% endblock %}

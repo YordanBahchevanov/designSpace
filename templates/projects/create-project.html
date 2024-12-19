@@ -15,7 +15,7 @@
         <a href="{% url 'profile-details' pk=user_pk %}">&times;</a>
     </div>
 
-    <form method="post" enctype="multipart/form-data" class="form" novalidate>
+    <form method="post" enctype="multipart/form-data" class="form"  id="create-project-form">
         {% csrf_token %}
 
         <div class="create-form-content">
@@ -36,41 +36,49 @@
                 {% endfor %}
             </div>
 
-<div class="form-right">
-    <h3>Upload Images</h3>
-    {{ image_formset.management_form }}
+            <div class="form-right">
+                <h3>Upload Images</h3>
+                {{ image_formset.management_form }}
 
-    {# Global formset errors (non-field errors) #}
-    {% if image_formset.non_form_errors %}
-    <div class="error-message">
-        {% for error in image_formset.non_form_errors %}
-            <p>{{ error }}</p>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-    <div class="card p-3 mb-4">
-        {% for image_form in image_formset %}
-            <div class="form-group mb-3">
-                <label for="{{ image_form.image.id_for_label }}">{{ image_form.image.label }}</label>
-                {{ image_form.image }}
-                {% if image_form.errors %}
-                <div class="error-message">
-                    {% for field, field_errors in image_form.errors.items %}
-                        {% for error in field_errors %}
+                {% if image_formset.non_form_errors %}
+                    <div class="error-message">
+                        {% for error in image_formset.non_form_errors %}
                             <p>{{ error }}</p>
                         {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="card p-3 mb-4">
+                    {% for image_form in image_formset %}
+                        <div class="form-group mb-3">
+                            <label for="{{ image_form.image.id_for_label }}">{{ image_form.image.label }}</label>
+                            {{ image_form.image }}
+                            {% if image_form.errors %}
+                                <div class="error-message">
+                                    {% for field, field_errors in image_form.errors.items %}
+                                        {% for error in field_errors %}
+                                            <p>{{ error }}</p>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
                     {% endfor %}
                 </div>
-                {% endif %}
             </div>
-        {% endfor %}
-    </div>
-</div>
         </div>
 
-        <button type="submit" class="btn-submit btn btn-primary">Create Project</button>
+        <button type="submit" class="btn-submit btn btn-primary" id="submit-btn">Create Project</button>
     </form>
 </div>
+<script>
+    const form = document.getElementById('create-project-form');
+    const submitButton = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function () {
+        submitButton.disabled = true;
+        submitButton.innerText = 'Creating the project...';
+    });
+</script>
 </body>
 </html>

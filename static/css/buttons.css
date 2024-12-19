@@ -60,7 +60,7 @@
 }
 
 .buttons .save-project,
-.buttons .like-button{
+.buttons .like-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +151,7 @@
 }
 
 .btn-submit,
-.btn-delete{
+.btn-delete {
     width: 100%;
     padding: 0.75rem 1.2rem;
     font-size: 1.1rem;
@@ -165,11 +165,12 @@
 }
 
 .btn-submit:hover,
-.btn-delete:hover{
+.btn-delete:hover {
     background-color: #0a6287;
 }
 
-.close-button {
+.close-button,
+.profile-folder .edit-button {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -187,6 +188,25 @@
     transition: background-color 0.3s ease;
 }
 
+.profile-folder .edit-button {
+    top: 3.8rem;
+    right: 1rem;
+}
+
+.folder .close-button,
+.profile-folder .close-button,
+.profile-folder .edit-button {
+    opacity: 0;
+    transition: background-color 0.3s, opacity 0.3s ease-in-out;
+}
+
+.folder:hover .close-button,
+.profile-folder:hover .close-button,
+.profile-folder:hover .edit-button {
+    opacity: 1;
+}
+
+
 .close-button a {
     text-decoration: none;
     color: #ECEFF5;
@@ -197,39 +217,47 @@
     background-color: #ff4d4d;
 }
 
+.edit-button:hover {
+    background-color: #0a6287;
+}
+
 .delete-icon {
-  position: absolute;
-  bottom: 1.5rem;
-  padding: 0.5rem;
-  background-color: #ECEFF5;
-  border-radius: 50%;
-  z-index: 10;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #8994A3;
-  font-size: 1.2rem;
-  text-decoration: none;
+    position: absolute;
+    bottom: 1.5rem;
+    padding: 0.5rem;
+    background-color: #ECEFF5;
+    border-radius: 50%;
+    z-index: 10;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #8994A3;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .delete-icon:hover {
-  background-color: #ff4d4d;
+    background-color: #ff4d4d;
 }
 
 .delete-icon:hover .fa-trash {
-  color: #ECEFF5;
+    color: #ECEFF5;
 }
 
 .project-delete-icon {
-  color: #8994A3;
+    color: #8994A3;
 }
 
 .like-toggle i.liked {
-    color: #0a6287;
+    color: #ECEFF5;
 }
 
 .like-count span {
     color: #0a6287;
+}
+
+.add-project-to-folder button {
+    margin-top: 2rem;
 }

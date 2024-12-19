@@ -16,10 +16,9 @@ from designSpace.articles.models import Article
 from designSpace.folders.models import Folder
 from designSpace.projects.models import Project
 
-import logging
-
 
 UserModel = get_user_model()
+
 
 class UserRegisterView(CreateView):
     model = UserModel

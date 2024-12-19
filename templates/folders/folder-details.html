@@ -9,12 +9,11 @@
 
         <div class="projects-container">
             {% for project in projects %}
-                <div class="profile-project">
+                <div class="folder profile-project">
                     {% if is_own_profile %}
-                        <a href="{% url 'remove-project-from-folder' pk=folder.pk project_id=project.id %}"
-                           class="remove-project-button">
-                            <i class="fa-solid fa-xmark"></i>
-                        </a>
+                        <div class="close-button">
+                            <a href="{% url 'remove-project-from-folder' pk=folder.pk project_id=project.id %}">&times;</a>
+                        </div>
                     {% endif %}
                     <a href="{% url 'projects:project-details' slug=project.slug %}">
                         <img src="{{ project.cover_image.url }}" alt="{{ project.title }}">

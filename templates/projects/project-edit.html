@@ -15,7 +15,7 @@
         <a href="{% url 'profile-details' pk=user_pk %}">&times;</a>
     </div>
 
-    <form method="post" enctype="multipart/form-data" class="form" novalidate>
+    <form method="post" enctype="multipart/form-data" class="form" id="edit-project-form" novalidate>
         {% csrf_token %}
 
         <div class="edit-form-content">
@@ -23,7 +23,17 @@
                 {% for field in form %}
                     <div class="form-group mb-3">
                         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-                        {{ field }}
+                    
+                        {% if field.name == 'cover_image' %}
+                            <a href="{{ field.value.url }}">
+                                {{ field.value.url|slice:":20" }}
+                                {% if field.value.url|length > 20 %}...{% endif %}
+                            </a>
+                            <input type="file" name="cover_image" class="change-image">
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                        
                         {% if field.errors %}
                             <div class="error-message">
                                 {% for error in field.errors %}
@@ -34,50 +44,19 @@
                     </div>
                 {% endfor %}
             </div>
-
-            <div class="form-right">
-                <h3>Update Images</h3>
-                {{ image_formset.management_form }}
-
-                {# Global formset errors (non-field errors) #}
-                {% if image_formset.non_form_errors %}
-                <div class="error-message">
-                    {% for error in image_formset.non_form_errors %}
-                        <p>{{ error }}</p>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                <div class="card p-3 mb-4">
-                    {% for image_form in image_formset %}
-                        <div class="form-group mb-3">
-                            <label for="{{ image_form.image.id_for_label }}">{{ image_form.image.label }}</label>
-                            {{ image_form.image }}
-
-                            {# Display checkbox for deleting images #}
-                            <div class="delete-image-checkbox">
-                                <label for="{{ image_form.DELETE.id_for_label }}">Delete this image:</label>
-                                {{ image_form.DELETE }}
-                            </div>
-
-                            {# Display validation errors for the image form #}
-                            {% if image_form.errors %}
-                            <div class="error-message">
-                                {% for field, field_errors in image_form.errors.items %}
-                                    {% for error in field_errors %}
-                                        <p>{{ error }}</p>
-                                    {% endfor %}
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
         </div>
 
-        <button type="submit" class="btn-submit btn btn-primary">Update Project</button>
+        <button type="submit" class="btn-submit btn btn-primary" id="submit-btn">Update Project</button>
     </form>
 </div>
+<script>
+    const form = document.getElementById('edit-project-form');
+    const submitButton = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function () {
+        submitButton.disabled = true;
+        submitButton.innerText = 'Updating the project...';
+    });
+</script>
 </body>
 </html>

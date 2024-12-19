@@ -22,14 +22,14 @@
 
         <div class="images-container">
             <div class="project-cover-image">
-                <img src="{{ project.cover_image.url }}" alt="Cover Image for {{ project.title }}">
+                <img src="{{ project.cover_image.url }}" alt="Cover Image for {{ project.title }}" class="lightbox-trigger" data-image-url="{{ project.cover_image.url }}">
             </div>
 
             {% if project.images.all %}
                 <div class="gallery-container">
                     {% for image in project.images.all %}
                         <div class="project-image">
-                            <img src="{{ image.image.url }}" alt="Gallery Image for {{ project.title }}">
+                            <img src="{{ image.image.url }}" alt="Gallery Image for {{ project.title }}" class="lightbox-trigger" data-image-url="{{ image.image.url }}">
                         </div>
                     {% endfor %}
                 </div>
@@ -53,7 +53,9 @@
     {% else %}
         <div class="buttons project-details-buttons">
             <div class="save-project">
-                <a href="#"><i class="fa-regular fa-folder"></i>Save project</a>
+                <a href="{% url 'add-project-to-folder' project.id %}">
+                    <i class="fa-regular fa-folder"></i>Save project
+                </a>
             </div>
             <div class="share-button">
                 <a href="#"><i class="fa-solid fa-share"></i></a>
@@ -70,10 +72,18 @@
             </div>
         </div>
     {% endif %}
+    
+    <div id="lightbox" class="lightbox hidden">
+        <span class="close">&times;</span>
+        <img class="lightbox-image" src="" alt="Full-screen view">
+    </div>
+
     <footer>
         <p>&copy; 2024 DesignSpace. All rights reserved.</p>
     </footer>
+
     {% block extra_js %}
         <script src="{% static 'scripts/like.js' %}"></script>
+        <script src="{% static 'scripts/lightbox.js' %}"></script>
     {% endblock %}
 {% endblock %}

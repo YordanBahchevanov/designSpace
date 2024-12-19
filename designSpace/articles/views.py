@@ -77,7 +77,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     login_url = reverse_lazy('log-in')
 
     def get_success_url(self):
-        return reverse_lazy('profile-articles', kwargs={'pk': self.request.user.pk})
+        return reverse_lazy('articles:article-details', kwargs={'pk': self.object.pk})
 
     def form_valid(self, form):
         form.instance.author = self.request.user

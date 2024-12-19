@@ -20,7 +20,7 @@ class Folder(models.Model):
     )
 
     title = models.CharField(
-        max_length=100
+        max_length=30
     )
 
     created_at = models.DateTimeField(

@@ -44,7 +44,7 @@
                 <a href="{% url 'profile-articles' pk=profile.user.pk %}" class="profile-link">My Articles</a>
                 <a href="{% url 'profile-folders' pk=profile.user.pk %}" class="profile-link">My Folders</a>
             {% endif %}
-            
+
             {% if request.resolver_match.view_name == 'folder-details' %}
                 <p><b>{{ folder.title }}</b></p>
             {% endif %}
@@ -53,7 +53,11 @@
                 <i class="fa-solid fa-trash"></i>
             </a>
         {% else %}
-            <a href="#" class="profile-link">Articles</a>
+            {% if request.resolver_match.view_name == 'profile-articles' %}
+                <a href="{% url 'profile-details' pk=profile.user.pk %}" class="profile-link">Projects</a>
+            {% else %}
+                <a href="{% url 'profile-articles' pk=profile.user.pk %}" class="profile-link">Articles</a>
+            {% endif %}
         {% endif %}
     </div>
 </div>
