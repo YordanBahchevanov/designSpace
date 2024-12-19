@@ -1,6 +1,6 @@
 # DesignSpace
 
-DesignSpace is a Django-powered web application tailored for creative professionals, including architects, interior designers, 3D artists, and other designers. The platform provides tools for showcasing your work, sharing insights, and connecting with collaborators to enhance your creative journey.
+ DesignSpace is a Django-powered web application tailored for creative professionals, including architects, interior designers, 3D artists, and other designers. The platform provides tools for showcasing your work, sharing insights, and connecting with collaborators to enhance your creative journey.
 
 ---
 
@@ -9,7 +9,7 @@ DesignSpace is a Django-powered web application tailored for creative profession
 **DesignSpace** is your go-to platform for:
 
 - **Uploading Projects**: Showcase completed work to boost your visibility and attract potential collaborators or clients.
-- **Writing Articles**: Share insights, expertise, and ideas to engage with the creative community.
+- **Writing Articles**: Share insights, expertise, and ideas to engage with the creative community. *(Restricted to users with writer permissions.)*
 
 This streamlined system supports designers looking to grow their networks, display their skills, and exchange knowledge with like-minded professionals.
 
@@ -35,7 +35,7 @@ A dedicated space to:
 
 ### Article Publishing
 
-- Write and publish articles to share knowledge and foster engagement in the design community.
+- Write and publish articles to share knowledge and foster engagement in the design community. *(Restricted to users with writer permissions.)*
 
 ---
 
