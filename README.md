@@ -27,7 +27,7 @@ This streamlined system supports designers looking to grow their networks, displ
 A dedicated space to:
 - Organize and showcase your uploaded projects.
 - Share and manage your published articles.
-- Save inspiring projects or articles from other users into personalized folders.
+- Save inspiring projects from other users into personalized folders.
 
 ### Project Showcase
 
